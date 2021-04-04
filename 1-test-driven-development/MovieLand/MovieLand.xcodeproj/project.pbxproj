@@ -18,6 +18,10 @@
 		DBBFEFD7261A42BB00EC6DE4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */; };
 		DBBFEFDE261A434700EC6DE4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */; };
 		DBBFEFE2261A434900EC6DE4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */; };
+		DBBFEFEB261A5E2400EC6DE4 /* MovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFEA261A5E2400EC6DE4 /* MovieManagerTests.swift */; };
+		DBBFEFF3261A5E8900EC6DE4 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFF2261A5E8900EC6DE4 /* MovieManager.swift */; };
+		DBBFEFF7261A5E9800EC6DE4 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFF2261A5E8900EC6DE4 /* MovieManager.swift */; };
+		DBBFEFFB261A5E9900EC6DE4 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFF2261A5E8900EC6DE4 /* MovieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,8 @@
 		DBBFEFBC261A3A0100EC6DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBBFEFD1261A421600EC6DE4 /* MovieStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStructTests.swift; sourceTree = "<group>"; };
 		DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DBBFEFEA261A5E2400EC6DE4 /* MovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManagerTests.swift; sourceTree = "<group>"; };
+		DBBFEFF2261A5E8900EC6DE4 /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */,
+				DBBFEFF2261A5E8900EC6DE4 /* MovieManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +160,7 @@
 		DBBFEFE8261A453200EC6DE4 /* TestModels */ = {
 			isa = PBXGroup;
 			children = (
+				DBBFEFEA261A5E2400EC6DE4 /* MovieManagerTests.swift */,
 				DBBFEFD1261A421600EC6DE4 /* MovieStructTests.swift */,
 			);
 			path = TestModels;
@@ -299,6 +307,7 @@
 			files = (
 				DBBFEF9D261A39FE00EC6DE4 /* ViewController.swift in Sources */,
 				DBBFEF99261A39FE00EC6DE4 /* AppDelegate.swift in Sources */,
+				DBBFEFF3261A5E8900EC6DE4 /* MovieManager.swift in Sources */,
 				DBBFEFD7261A42BB00EC6DE4 /* Movie.swift in Sources */,
 				DBBFEF9B261A39FE00EC6DE4 /* SceneDelegate.swift in Sources */,
 			);
@@ -308,6 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBFEFF7261A5E9800EC6DE4 /* MovieManager.swift in Sources */,
+				DBBFEFEB261A5E2400EC6DE4 /* MovieManagerTests.swift in Sources */,
 				DBBFEFDE261A434700EC6DE4 /* Movie.swift in Sources */,
 				DBBFEFD2261A421600EC6DE4 /* MovieStructTests.swift in Sources */,
 			);
@@ -318,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBFEFE2261A434900EC6DE4 /* Movie.swift in Sources */,
+				DBBFEFFB261A5E9900EC6DE4 /* MovieManager.swift in Sources */,
 				DBBFEFBB261A3A0100EC6DE4 /* MovieLandUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

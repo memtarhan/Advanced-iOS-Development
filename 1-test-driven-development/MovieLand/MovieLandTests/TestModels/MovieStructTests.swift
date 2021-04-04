@@ -18,6 +18,8 @@ class MovieStructTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    // MARK: - Initialization
+
     func testInitMovieWithTitle() {
         let movie = Movie(title: "Django Unchained")
 
@@ -40,5 +42,28 @@ class MovieStructTests: XCTestCase {
 
         /// * Equal
         XCTAssertEqual(movie.releaseDate, "2012")
+    }
+
+    // MARK: - Equatable
+
+    func testEquatableReturnsTrue() {
+        let movie1 = Movie(title: "Django Unchained")
+//        let movie2 = Movie(title: "Jackie Brown")
+
+        XCTAssertEqual(movie1, movie1)
+    }
+
+    func testEquatableReturnsNotEqualForDifferentTitles() {
+        let movie1 = Movie(title: "Django Unchained")
+        let movie2 = Movie(title: "Jackie Brown")
+
+        XCTAssertNotEqual(movie1, movie2)
+    }
+
+    func testEquatableReturnsNotEqualForDifferentReleaseDates() {
+        let movie1 = Movie(title: "Django Unchained", releaseDate: "2012")
+        let movie2 = Movie(title: "Django Unchained", releaseDate: "1997")
+
+        XCTAssertNotEqual(movie1, movie2)
     }
 }
