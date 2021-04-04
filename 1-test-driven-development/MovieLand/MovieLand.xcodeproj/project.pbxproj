@@ -13,8 +13,11 @@
 		DBBFEFA0261A39FE00EC6DE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBFEF9E261A39FE00EC6DE4 /* Main.storyboard */; };
 		DBBFEFA2261A3A0100EC6DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBFEFA1261A3A0100EC6DE4 /* Assets.xcassets */; };
 		DBBFEFA5261A3A0100EC6DE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBFEFA3261A3A0100EC6DE4 /* LaunchScreen.storyboard */; };
-		DBBFEFB0261A3A0100EC6DE4 /* MovieLandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFAF261A3A0100EC6DE4 /* MovieLandTests.swift */; };
 		DBBFEFBB261A3A0100EC6DE4 /* MovieLandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFBA261A3A0100EC6DE4 /* MovieLandUITests.swift */; };
+		DBBFEFD2261A421600EC6DE4 /* MovieStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD1261A421600EC6DE4 /* MovieStructTests.swift */; };
+		DBBFEFD7261A42BB00EC6DE4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */; };
+		DBBFEFDE261A434700EC6DE4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */; };
+		DBBFEFE2261A434900EC6DE4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +47,12 @@
 		DBBFEFA4261A3A0100EC6DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBBFEFA6261A3A0100EC6DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBBFEFAB261A3A0100EC6DE4 /* MovieLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBBFEFAF261A3A0100EC6DE4 /* MovieLandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLandTests.swift; sourceTree = "<group>"; };
 		DBBFEFB1261A3A0100EC6DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBBFEFB6261A3A0100EC6DE4 /* MovieLandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieLandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBFEFBA261A3A0100EC6DE4 /* MovieLandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLandUITests.swift; sourceTree = "<group>"; };
 		DBBFEFBC261A3A0100EC6DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBBFEFD1261A421600EC6DE4 /* MovieStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStructTests.swift; sourceTree = "<group>"; };
+		DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,10 @@
 		DBBFEF97261A39FE00EC6DE4 /* MovieLand */ = {
 			isa = PBXGroup;
 			children = (
+				DBBFEFE7261A452500EC6DE4 /* Controllers */,
+				DBBFEFE6261A451E00EC6DE4 /* Models */,
 				DBBFEF98261A39FE00EC6DE4 /* AppDelegate.swift */,
 				DBBFEF9A261A39FE00EC6DE4 /* SceneDelegate.swift */,
-				DBBFEF9C261A39FE00EC6DE4 /* ViewController.swift */,
 				DBBFEF9E261A39FE00EC6DE4 /* Main.storyboard */,
 				DBBFEFA1261A3A0100EC6DE4 /* Assets.xcassets */,
 				DBBFEFA3261A3A0100EC6DE4 /* LaunchScreen.storyboard */,
@@ -113,7 +118,8 @@
 		DBBFEFAE261A3A0100EC6DE4 /* MovieLandTests */ = {
 			isa = PBXGroup;
 			children = (
-				DBBFEFAF261A3A0100EC6DE4 /* MovieLandTests.swift */,
+				DBBFEFE9261A453B00EC6DE4 /* TestControllers */,
+				DBBFEFE8261A453200EC6DE4 /* TestModels */,
 				DBBFEFB1261A3A0100EC6DE4 /* Info.plist */,
 			);
 			path = MovieLandTests;
@@ -126,6 +132,37 @@
 				DBBFEFBC261A3A0100EC6DE4 /* Info.plist */,
 			);
 			path = MovieLandUITests;
+			sourceTree = "<group>";
+		};
+		DBBFEFE6261A451E00EC6DE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBBFEFD6261A42BB00EC6DE4 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DBBFEFE7261A452500EC6DE4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBBFEF9C261A39FE00EC6DE4 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DBBFEFE8261A453200EC6DE4 /* TestModels */ = {
+			isa = PBXGroup;
+			children = (
+				DBBFEFD1261A421600EC6DE4 /* MovieStructTests.swift */,
+			);
+			path = TestModels;
+			sourceTree = "<group>";
+		};
+		DBBFEFE9261A453B00EC6DE4 /* TestControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +236,7 @@
 					};
 					DBBFEFAA261A3A0100EC6DE4 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 						TestTargetID = DBBFEF94261A39FE00EC6DE4;
 					};
 					DBBFEFB5261A3A0100EC6DE4 = {
@@ -261,6 +299,7 @@
 			files = (
 				DBBFEF9D261A39FE00EC6DE4 /* ViewController.swift in Sources */,
 				DBBFEF99261A39FE00EC6DE4 /* AppDelegate.swift in Sources */,
+				DBBFEFD7261A42BB00EC6DE4 /* Movie.swift in Sources */,
 				DBBFEF9B261A39FE00EC6DE4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +308,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBBFEFB0261A3A0100EC6DE4 /* MovieLandTests.swift in Sources */,
+				DBBFEFDE261A434700EC6DE4 /* Movie.swift in Sources */,
+				DBBFEFD2261A421600EC6DE4 /* MovieStructTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBFEFE2261A434900EC6DE4 /* Movie.swift in Sources */,
 				DBBFEFBB261A3A0100EC6DE4 /* MovieLandUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +516,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L9L899V66;
 				INFOPLIST_FILE = MovieLandTests/Info.plist;
@@ -486,6 +528,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.memtarhan.MovieLandTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieLand.app/MovieLand";
@@ -497,6 +540,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L9L899V66;
 				INFOPLIST_FILE = MovieLandTests/Info.plist;
