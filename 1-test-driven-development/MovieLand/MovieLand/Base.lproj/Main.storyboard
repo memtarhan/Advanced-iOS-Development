@@ -10,7 +10,7 @@
         <!--Movie Land-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LibraryViewControllerID" id="BYZ-38-t0r" customClass="LibraryViewController" customModule="MovieLand" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jfi-ep-7I1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,10 +44,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Movie Land" id="tfO-a2-1qJ"/>
                     <connections>
+                        <outlet property="dataService" destination="YJc-0O-Dd0" id="80F-fJ-A7u"/>
                         <outlet property="tableView" destination="Jfi-ep-7I1" id="rd8-LS-8hE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="YJc-0O-Dd0" userLabel="Movie Library Data Service" customClass="MovieLibraryDataService" customModule="MovieLand" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
         </scene>
