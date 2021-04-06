@@ -1,0 +1,6 @@
+framework module Pods_NoteLand_NoteLandUITests {
+  umbrella header "Pods-NoteLand-NoteLandUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

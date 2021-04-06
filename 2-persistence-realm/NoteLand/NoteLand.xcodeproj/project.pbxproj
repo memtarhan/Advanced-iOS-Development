@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BB92B7F1B7A8BA1A30D4F0B /* Pods_NoteLand_NoteLandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13FBA28070D76B2F19F883 /* Pods_NoteLand_NoteLandUITests.framework */; };
+		D0FC7F369DE47434F0754664 /* Pods_NoteLandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD522F7AC28100C331AB9F0 /* Pods_NoteLandTests.framework */; };
 		DBBB41D4261CCF17006C81FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41D3261CCF17006C81FE /* AppDelegate.swift */; };
 		DBBB41D6261CCF17006C81FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41D5261CCF17006C81FE /* SceneDelegate.swift */; };
 		DBBB41D8261CCF17006C81FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41D7261CCF17006C81FE /* ViewController.swift */; };
@@ -15,6 +17,7 @@
 		DBBB41E0261CCF19006C81FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBB41DE261CCF19006C81FE /* LaunchScreen.storyboard */; };
 		DBBB41EB261CCF19006C81FE /* NoteLandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41EA261CCF19006C81FE /* NoteLandTests.swift */; };
 		DBBB41F6261CCF19006C81FE /* NoteLandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41F5261CCF19006C81FE /* NoteLandUITests.swift */; };
+		E3A3462DF4D6FF8DF280603C /* Pods_NoteLand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080CB5FC6674B9130D62F312 /* Pods_NoteLand.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080CB5FC6674B9130D62F312 /* Pods_NoteLand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoteLand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DD522F7AC28100C331AB9F0 /* Pods_NoteLandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoteLandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53593CA163C421780A29C0DE /* Pods-NoteLandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLandTests.debug.xcconfig"; path = "Target Support Files/Pods-NoteLandTests/Pods-NoteLandTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BDCF38A01BB2733A2588622 /* Pods-NoteLand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLand.release.xcconfig"; path = "Target Support Files/Pods-NoteLand/Pods-NoteLand.release.xcconfig"; sourceTree = "<group>"; };
+		8D13FBA28070D76B2F19F883 /* Pods_NoteLand_NoteLandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoteLand_NoteLandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A387DC00DC43F188C337F218 /* Pods-NoteLandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLandTests.release.xcconfig"; path = "Target Support Files/Pods-NoteLandTests/Pods-NoteLandTests.release.xcconfig"; sourceTree = "<group>"; };
+		C64DC0D24CA7AC50AEFBD622 /* Pods-NoteLand-NoteLandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLand-NoteLandUITests.debug.xcconfig"; path = "Target Support Files/Pods-NoteLand-NoteLandUITests/Pods-NoteLand-NoteLandUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0035B078ED8EB6B527D1320 /* Pods-NoteLand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLand.debug.xcconfig"; path = "Target Support Files/Pods-NoteLand/Pods-NoteLand.debug.xcconfig"; sourceTree = "<group>"; };
 		DBBB41D0261CCF17006C81FE /* NoteLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBB41D3261CCF17006C81FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBB41D5261CCF17006C81FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		DBBB41F1261CCF19006C81FE /* NoteLandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteLandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBB41F5261CCF19006C81FE /* NoteLandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteLandUITests.swift; sourceTree = "<group>"; };
 		DBBB41F7261CCF19006C81FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD3600D0162FB71CF45E6B0 /* Pods-NoteLand-NoteLandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLand-NoteLandUITests.release.xcconfig"; path = "Target Support Files/Pods-NoteLand-NoteLandUITests/Pods-NoteLand-NoteLandUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A3462DF4D6FF8DF280603C /* Pods_NoteLand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FC7F369DE47434F0754664 /* Pods_NoteLandTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB92B7F1B7A8BA1A30D4F0B /* Pods_NoteLand_NoteLandUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68E1D2058857E6BC678333CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				080CB5FC6674B9130D62F312 /* Pods_NoteLand.framework */,
+				8D13FBA28070D76B2F19F883 /* Pods_NoteLand_NoteLandUITests.framework */,
+				3DD522F7AC28100C331AB9F0 /* Pods_NoteLandTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99C79E9C51864B407462452E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0035B078ED8EB6B527D1320 /* Pods-NoteLand.debug.xcconfig */,
+				5BDCF38A01BB2733A2588622 /* Pods-NoteLand.release.xcconfig */,
+				C64DC0D24CA7AC50AEFBD622 /* Pods-NoteLand-NoteLandUITests.debug.xcconfig */,
+				EDD3600D0162FB71CF45E6B0 /* Pods-NoteLand-NoteLandUITests.release.xcconfig */,
+				53593CA163C421780A29C0DE /* Pods-NoteLandTests.debug.xcconfig */,
+				A387DC00DC43F188C337F218 /* Pods-NoteLandTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DBBB41C7261CCF17006C81FE = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,8 @@
 				DBBB41E9261CCF19006C81FE /* NoteLandTests */,
 				DBBB41F4261CCF19006C81FE /* NoteLandUITests */,
 				DBBB41D1261CCF17006C81FE /* Products */,
+				99C79E9C51864B407462452E /* Pods */,
+				68E1D2058857E6BC678333CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBBB41FA261CCF19006C81FE /* Build configuration list for PBXNativeTarget "NoteLand" */;
 			buildPhases = (
+				5DA30FE482CC7869A2640B2F /* [CP] Check Pods Manifest.lock */,
 				DBBB41CC261CCF17006C81FE /* Sources */,
 				DBBB41CD261CCF17006C81FE /* Frameworks */,
 				DBBB41CE261CCF17006C81FE /* Resources */,
+				9EA946BE502545ABAF9AE1CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBBB41FD261CCF19006C81FE /* Build configuration list for PBXNativeTarget "NoteLandTests" */;
 			buildPhases = (
+				6EC8A57EE46AB3694BD82EF3 /* [CP] Check Pods Manifest.lock */,
 				DBBB41E2261CCF19006C81FE /* Sources */,
 				DBBB41E3261CCF19006C81FE /* Frameworks */,
 				DBBB41E4261CCF19006C81FE /* Resources */,
@@ -170,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBBB4200261CCF19006C81FE /* Build configuration list for PBXNativeTarget "NoteLandUITests" */;
 			buildPhases = (
+				2E7C39FF779294BAC418AF01 /* [CP] Check Pods Manifest.lock */,
 				DBBB41ED261CCF19006C81FE /* Sources */,
 				DBBB41EE261CCF19006C81FE /* Frameworks */,
 				DBBB41EF261CCF19006C81FE /* Resources */,
+				D3949FA06F2B5B4EC39E9974 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E7C39FF779294BAC418AF01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NoteLand-NoteLandUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DA30FE482CC7869A2640B2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NoteLand-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EC8A57EE46AB3694BD82EF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NoteLandTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EA946BE502545ABAF9AE1CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoteLand/Pods-NoteLand-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoteLand/Pods-NoteLand-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NoteLand/Pods-NoteLand-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3949FA06F2B5B4EC39E9974 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoteLand-NoteLandUITests/Pods-NoteLand-NoteLandUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoteLand-NoteLandUITests/Pods-NoteLand-NoteLandUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NoteLand-NoteLandUITests/Pods-NoteLand-NoteLandUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DBBB41CC261CCF17006C81FE /* Sources */ = {
@@ -433,6 +582,7 @@
 		};
 		DBBB41FB261CCF19006C81FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0035B078ED8EB6B527D1320 /* Pods-NoteLand.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +602,7 @@
 		};
 		DBBB41FC261CCF19006C81FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDCF38A01BB2733A2588622 /* Pods-NoteLand.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +622,7 @@
 		};
 		DBBB41FE261CCF19006C81FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53593CA163C421780A29C0DE /* Pods-NoteLandTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +645,7 @@
 		};
 		DBBB41FF261CCF19006C81FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A387DC00DC43F188C337F218 /* Pods-NoteLandTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +668,7 @@
 		};
 		DBBB4201261CCF19006C81FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C64DC0D24CA7AC50AEFBD622 /* Pods-NoteLand-NoteLandUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +689,7 @@
 		};
 		DBBB4202261CCF19006C81FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDD3600D0162FB71CF45E6B0 /* Pods-NoteLand-NoteLandUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
