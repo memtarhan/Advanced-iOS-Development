@@ -17,18 +17,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let realm = try Realm()
 
-            let note = NoteRealmModel()
-            note.title = "My first note"
-            note.content = "I hope Realm is a better solution than CoreData :D"
+            // - Writing a Note object
+//            let note = NoteRealmModel()
+//            note.title = "My first note"
+//            note.content = "I hope Realm is a better solution than CoreData :D"
+//
+//            do {
+//                try realm.write {
+//                    realm.add(note)
+//                    print("REALM: Added a note with title: \(note.title)")
+//                }
+//
+//            } catch {
+//                print("REALM: Cannot add a note: \(error.localizedDescription)")
+//            }
 
-            do {
-                try realm.write {
-                    realm.add(note)
-                    print("REALM: Added a note with title: \(note.title)")
-                }
+            // - Reading a Note object
+            /// - Viewing all notes in Realm
+            let notes = realm.objects(NoteRealmModel.self)
+            print("REALM: All notes: \(notes)")
 
-            } catch {
-                print("REALM: Cannot add a note: \(error.localizedDescription)")
+            /// - Updating a note
+//            if let firstNote = notes.first {
+//                try? realm.write {
+//                    firstNote.title = "I updated this note's title"
+//                    print("REALM: Updated a note's title")
+//                }
+//            }
+
+            notes.forEach { note in
+                print("REALM: Note: \(note)")
             }
 
         } catch {
