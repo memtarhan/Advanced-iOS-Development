@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9BB92B7F1B7A8BA1A30D4F0B /* Pods_NoteLand_NoteLandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13FBA28070D76B2F19F883 /* Pods_NoteLand_NoteLandUITests.framework */; };
 		D0FC7F369DE47434F0754664 /* Pods_NoteLandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD522F7AC28100C331AB9F0 /* Pods_NoteLandTests.framework */; };
+		DB66CF72261CD20700E12C5F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66CF71261CD20700E12C5F /* Model.swift */; };
 		DBBB41D4261CCF17006C81FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41D3261CCF17006C81FE /* AppDelegate.swift */; };
 		DBBB41D6261CCF17006C81FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41D5261CCF17006C81FE /* SceneDelegate.swift */; };
 		DBBB41D8261CCF17006C81FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB41D7261CCF17006C81FE /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 		A387DC00DC43F188C337F218 /* Pods-NoteLandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLandTests.release.xcconfig"; path = "Target Support Files/Pods-NoteLandTests/Pods-NoteLandTests.release.xcconfig"; sourceTree = "<group>"; };
 		C64DC0D24CA7AC50AEFBD622 /* Pods-NoteLand-NoteLandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLand-NoteLandUITests.debug.xcconfig"; path = "Target Support Files/Pods-NoteLand-NoteLandUITests/Pods-NoteLand-NoteLandUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0035B078ED8EB6B527D1320 /* Pods-NoteLand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteLand.debug.xcconfig"; path = "Target Support Files/Pods-NoteLand/Pods-NoteLand.debug.xcconfig"; sourceTree = "<group>"; };
+		DB66CF71261CD20700E12C5F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DBBB41D0261CCF17006C81FE /* NoteLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBB41D3261CCF17006C81FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBB41D5261CCF17006C81FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 				53593CA163C421780A29C0DE /* Pods-NoteLandTests.debug.xcconfig */,
 				A387DC00DC43F188C337F218 /* Pods-NoteLandTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,6 +144,7 @@
 				DBBB41D3261CCF17006C81FE /* AppDelegate.swift */,
 				DBBB41D5261CCF17006C81FE /* SceneDelegate.swift */,
 				DBBB41D7261CCF17006C81FE /* ViewController.swift */,
+				DB66CF71261CD20700E12C5F /* Model.swift */,
 				DBBB41D9261CCF17006C81FE /* Main.storyboard */,
 				DBBB41DC261CCF19006C81FE /* Assets.xcassets */,
 				DBBB41DE261CCF19006C81FE /* LaunchScreen.storyboard */,
@@ -238,6 +240,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = MEMTARHAN;
 				TargetAttributes = {
 					DBBB41CF261CCF17006C81FE = {
 						CreatedOnToolsVersion = 12.4;
@@ -410,6 +413,7 @@
 				DBBB41D8261CCF17006C81FE /* ViewController.swift in Sources */,
 				DBBB41D4261CCF17006C81FE /* AppDelegate.swift in Sources */,
 				DBBB41D6261CCF17006C81FE /* SceneDelegate.swift in Sources */,
+				DB66CF72261CD20700E12C5F /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
