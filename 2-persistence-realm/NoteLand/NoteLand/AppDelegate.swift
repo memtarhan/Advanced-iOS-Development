@@ -45,8 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                }
 //            }
 
-            notes.forEach { note in
-                print("REALM: Note: \(note)")
+//            notes.forEach { note in
+//                print("REALM: Note: \(note)")
+//            }
+
+            // - Filtering
+            let predicate = NSPredicate(format: "title CONTAINS %@ AND content CONTAINS %@", "I", "Realm")
+            /// - for more on NSPRedicate https://nshipster.com/nspredicate/
+
+            let results = notes.filter(predicate)
+
+            for result in results {
+                print("REALM: Filtered note: \(result)")
             }
 
         } catch {
