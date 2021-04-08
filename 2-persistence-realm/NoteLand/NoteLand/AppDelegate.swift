@@ -50,13 +50,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 
             // - Filtering
-            let predicate = NSPredicate(format: "title CONTAINS %@ AND content CONTAINS %@", "I", "Realm")
-            /// - for more on NSPRedicate https://nshipster.com/nspredicate/
+//            let predicate = NSPredicate(format: "title CONTAINS %@ AND content CONTAINS %@", "I", "Realm")
+//            /// - for more on NSPRedicate https://nshipster.com/nspredicate/
+//
+//            let results = notes.filter(predicate)
+//
+//            for result in results {
+//                print("REALM: Filtered note: \(result)")
+//            }
 
-            let results = notes.filter(predicate)
-
-            for result in results {
-                print("REALM: Filtered note: \(result)")
+            // - Deleting
+            for note in notes {
+                try! realm.write {
+                    realm.delete(note)
+                }
             }
 
         } catch {
