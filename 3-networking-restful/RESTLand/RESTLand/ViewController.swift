@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         fetch(withId: 1) { music in
             print("Fetched music: \(music.name!)")
             music.description = "Completely NEW"
-            self.update(music)
+            self.delete(music)
         }
     }
 
@@ -68,6 +68,20 @@ class ViewController: UIViewController {
         var request = URLRequest(url: URL(string: urlString)!)
         request.httpMethod = "PUT"
         request.httpBody = try? JSONEncoder().encode(music.self)
+
+        let task = URLSession.shared.dataTask(with: request) { data, _, _ in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .ascii) ?? "NO DATA")
+        }
+
+        task.resume()
+    }
+    
+    private func delete(_ music: Music) {
+        let urlString = "\(baseURL)/music/id/\(music.guid!)"
+
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "DELETE"
 
         let task = URLSession.shared.dataTask(with: request) { data, _, _ in
             guard let data = data else { return }
