@@ -13,20 +13,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // fetch()
-        fetch(withId: 1) { music in
-            print("Fetched music: \(music.name!)")
-            music.description = "Completely NEW"
-            self.delete(music)
+//        fetch(withId: 1) { music in
+//            print("Fetched music: \(music.name!)")
+//            music.description = "Completely NEW"
+//            self.delete(music)
+//        }
+
+        fetch { musics in
+            print("Fetched musics: \(musics)")
         }
     }
 
-    private func fetch() {
+    private func fetch(_ completionHandler: @escaping ([Music]) -> Void) {
         let urlString = "\(baseURL)/music"
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-                let dataString = String(data: data!, encoding: .ascii)
-                print("Fetched: \(String(describing: dataString))")
+                guard let data = data else { return }
+                if let musics = try? JSONDecoder().decode([Music].self, from: data) {
+                    completionHandler(musics)
+                }
             }
 
             task.resume()
