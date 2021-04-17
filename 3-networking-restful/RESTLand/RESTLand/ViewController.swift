@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         fetch(withId: 1) { music in
-            print("Fetched music: \(music.name!)")
+            print("Fetched music: \(music.createdBy!)")
             music.description = "Completely NEW"
             music.dict = ["dict": 10]
 
@@ -111,10 +111,12 @@ class Music: Codable {
     var name: String?
     var description: String?
     var dict: [String: Int]?
+    var createdBy: Creator?
 
     enum CodingKeys: String, CodingKey {
         case guid = "id"
         case url = "music_url"
+        case createdBy = "created_by"
         case name, description, dict
     }
 
@@ -138,4 +140,9 @@ class Music: Codable {
 //        try container.encode(dict, forKey: .dict)
 //        // Should do it for other properties too
 //    }
+}
+
+
+enum Creator: String, Codable {
+    case ikoliks, bear, others
 }
