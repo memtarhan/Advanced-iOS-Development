@@ -34,15 +34,17 @@ class ViewController: UIViewController {
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { data, _, _ in
                 guard let data = data else { return }
+
                 if let objectData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
                     if let arrayData = objectData as? [Any],
                        let value = arrayData.first as? [String: Any] {
-                        let music = Music()
-                        music.id = value["id"] as? String
-                        music.music_url = value["music_url"] as? String
-                        music.name = value["name"] as? String
-                        music.description = value["description"] as? String
-                        print("Fetched music w/ id: \(music)")
+                        if let json = try? JSONSerialization.data(withJSONObject: value, options: .prettyPrinted) {
+                            if let music = try? JSONDecoder().decode(Music.self, from: json) {
+                                print(music.url ?? "No id available")
+                                // Applied this function because of a problem in API
+                                // Temporary solution
+                            }
+                        }
                     }
                 }
             }
@@ -52,9 +54,15 @@ class ViewController: UIViewController {
     }
 }
 
-class Music {
-    var id: String?
-    var music_url: String?
+class Music: Codable {
+    var guid: String?
+    var url: String?
     var name: String?
     var description: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case guid = "id"
+        case url = "music_url"
+        case name, description
+    }
 }
