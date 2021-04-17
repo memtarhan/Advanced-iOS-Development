@@ -113,4 +113,13 @@ class Music: Codable {
         name = try values.decode(String.self, forKey: .name)
         // should do it for other properties too
     }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        let serverGUID = guid?.replacingOccurrences(of: "id:", with: "")
+        try container.encode(serverGUID, forKey: .guid)
+        try container.encode(url, forKey: .url)
+        // Should do it for other properties too
+    }
 }
