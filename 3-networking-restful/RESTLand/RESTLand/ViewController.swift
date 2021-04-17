@@ -16,7 +16,8 @@ class ViewController: UIViewController {
         // fetch()
         fetch(withId: 1) { music in
             print("Fetched music: \(music.name!)")
-            self.save(music)
+            music.description = "Completely NEW"
+            self.update(music)
         }
     }
 
@@ -33,22 +34,12 @@ class ViewController: UIViewController {
     }
 
     private func fetch(withId id: Int, completionHandler: @escaping (Music) -> Void) {
-        let urlString = "\(baseURL)/music/\(id)"
+        let urlString = "\(baseURL)/music/id/\(id)"
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { data, _, _ in
                 guard let data = data else { return }
-
-                if let objectData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-                    if let arrayData = objectData as? [Any],
-                       let value = arrayData.first as? [String: Any] {
-                        if let json = try? JSONSerialization.data(withJSONObject: value, options: .prettyPrinted) {
-                            if let music = try? JSONDecoder().decode(Music.self, from: json) {
-                                // Applied this function because of a problem in API
-                                // Temporary solution
-                                completionHandler(music)
-                            }
-                        }
-                    }
+                if let music = try? JSONDecoder().decode(Music.self, from: data) {
+                    completionHandler(music)
                 }
             }
 
@@ -61,6 +52,21 @@ class ViewController: UIViewController {
 
         var request = URLRequest(url: URL(string: urlString)!)
         request.httpMethod = "POST"
+        request.httpBody = try? JSONEncoder().encode(music.self)
+
+        let task = URLSession.shared.dataTask(with: request) { data, _, _ in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .ascii) ?? "NO DATA")
+        }
+
+        task.resume()
+    }
+    
+    private func update(_ music: Music) {
+        let urlString = "\(baseURL)/music/id/\(music.guid!)"
+
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "PUT"
         request.httpBody = try? JSONEncoder().encode(music.self)
 
         let task = URLSession.shared.dataTask(with: request) { data, _, _ in
