@@ -14,7 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // fetch()
-        fetch(withId: 1)
+        fetch(withId: 1) { music in
+            print("Fetched music: \(music.name!)")
+            self.save(music)
+        }
     }
 
     private func fetch() {
@@ -29,7 +32,7 @@ class ViewController: UIViewController {
         }
     }
 
-    private func fetch(withId id: Int) {
+    private func fetch(withId id: Int, completionHandler: @escaping (Music) -> Void) {
         let urlString = "\(baseURL)/music/\(id)"
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { data, _, _ in
@@ -40,9 +43,9 @@ class ViewController: UIViewController {
                        let value = arrayData.first as? [String: Any] {
                         if let json = try? JSONSerialization.data(withJSONObject: value, options: .prettyPrinted) {
                             if let music = try? JSONDecoder().decode(Music.self, from: json) {
-                                print(music.url ?? "No id available")
                                 // Applied this function because of a problem in API
                                 // Temporary solution
+                                completionHandler(music)
                             }
                         }
                     }
@@ -52,6 +55,21 @@ class ViewController: UIViewController {
             task.resume()
         }
     }
+
+    private func save(_ music: Music) {
+        let urlString = "\(baseURL)/music/"
+
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONEncoder().encode(music.self)
+
+        let task = URLSession.shared.dataTask(with: request) { data, _, _ in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .ascii) ?? "NO DATA")
+        }
+
+        task.resume()
+    }
 }
 
 class Music: Codable {
@@ -59,7 +77,7 @@ class Music: Codable {
     var url: String?
     var name: String?
     var description: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case guid = "id"
         case url = "music_url"
