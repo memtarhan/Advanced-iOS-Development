@@ -13,15 +13,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        fetch(withId: 1) { music in
-//            print("Fetched music: \(music.name!)")
-//            music.description = "Completely NEW"
-//            self.delete(music)
-//        }
+        fetch(withId: 1) { music in
+            print("Fetched music: \(music.name!)")
+            music.description = "Completely NEW"
+            music.dict = ["dict": 10]
 
-        fetch { musics in
-            print("Fetched musics: \(musics)")
+            // self.update(music)
+
+            if let musicData = try? JSONEncoder().encode(music) {
+                if let anotherMusic = try? JSONDecoder().decode(Music.self, from: musicData) {
+                    print("Updated music with dict: \(anotherMusic.dict)")
+                }
+            }
         }
+
+//        fetch { musics in
+//            print("Fetched musics: \(musics)")
+//        }
     }
 
     private func fetch(_ completionHandler: @escaping ([Music]) -> Void) {
@@ -99,32 +107,35 @@ class ViewController: UIViewController {
 
 class Music: Codable {
     var guid: String?
-    var url: String?
+    var url: URL?
     var name: String?
     var description: String?
+    var dict: [String: Int]?
 
     enum CodingKeys: String, CodingKey {
         case guid = "id"
         case url = "music_url"
-        case name, description
+        case name, description, dict
     }
 
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        // Could be used to format dates
-        let val = try values.decode(String.self, forKey: .guid)
-        guid = "id: \(val)"
-        name = try values.decode(String.self, forKey: .name)
-        // should do it for other properties too
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-
-        let serverGUID = guid?.replacingOccurrences(of: "id:", with: "")
-        try container.encode(serverGUID, forKey: .guid)
-        try container.encode(url, forKey: .url)
-        // Should do it for other properties too
-    }
+//    required init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        // Could be used to format dates
+//        let val = try values.decode(String.self, forKey: .guid)
+//        guid = "id: \(val)"
+//        name = try values.decode(String.self, forKey: .name)
+//        dict = try values.decode([String: Int].self, forKey: .dict)
+//        // should do it for other properties too
+//    }
+//
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//
+//        let serverGUID = guid?.replacingOccurrences(of: "id:", with: "")
+//        try container.encode(serverGUID, forKey: .guid)
+//        try container.encode(url, forKey: .url)
+//        try container.encode(dict, forKey: .dict)
+//        // Should do it for other properties too
+//    }
 }
