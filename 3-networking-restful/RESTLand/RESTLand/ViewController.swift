@@ -61,7 +61,7 @@ class ViewController: UIViewController {
 
         task.resume()
     }
-    
+
     private func update(_ music: Music) {
         let urlString = "\(baseURL)/music/id/\(music.guid!)"
 
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
 
         task.resume()
     }
-    
+
     private func delete(_ music: Music) {
         let urlString = "\(baseURL)/music/id/\(music.guid!)"
 
@@ -102,5 +102,15 @@ class Music: Codable {
         case guid = "id"
         case url = "music_url"
         case name, description
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        // Could be used to format dates
+        let val = try values.decode(String.self, forKey: .guid)
+        guid = "id: \(val)"
+        name = try values.decode(String.self, forKey: .name)
+        // should do it for other properties too
     }
 }
