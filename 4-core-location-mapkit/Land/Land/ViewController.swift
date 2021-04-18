@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     var camera = MKMapCamera()
     var pitch = 0
+    var isOn = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapFeatures(_ sender: Any) {
+//        mapView.showsBuildings = isOn
+//        isOn = !isOn
+        isOn = !mapView.showsBuildings
+        mapView.showsBuildings = isOn
+        mapView.showsScale = isOn
+        mapView.showsCompass = isOn
+        mapView.showsTraffic = isOn
     }
 
     @IBAction func didTapHere(_ sender: Any) {
