@@ -145,15 +145,16 @@ class ViewController: UIViewController {
 
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        var annotationView = MKPinAnnotationView()
+        var annotationView = MKAnnotationView()
         guard let annotation = annotation as? PizzaAnnotation else { return nil }
-        if let dequedView = mapView.dequeueReusableAnnotationView(withIdentifier: annotation.identifier) as? MKPinAnnotationView {
+        if let dequedView = mapView.dequeueReusableAnnotationView(withIdentifier: annotation.identifier) {
             annotationView = dequedView
 
         } else {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
         }
-        annotationView.pinTintColor = .systemBlue
+
+        annotationView.image = #imageLiteral(resourceName: "pizza pin")
         annotationView.canShowCallout = true
 
         let paragraph = UILabel()
@@ -162,6 +163,8 @@ extension ViewController: MKMapViewDelegate {
         paragraph.text = annotation.history
         annotationView.detailCalloutAccessoryView = paragraph
 
+        annotationView.leftCalloutAccessoryView = UIImageView(image: annotation.photo)
+        
         return annotationView
     }
 }
