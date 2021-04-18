@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DB57B5C4262C426200E10491 /* PizzaAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57B5C3262C426200E10491 /* PizzaAnnotation.swift */; };
 		DB57B5C7262C48E700E10491 /* PizzaHistoryAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57B5C6262C48E700E10491 /* PizzaHistoryAnnotations.swift */; };
+		DB57B5D1262C52D200E10491 /* AnnotationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB57B5CF262C52D200E10491 /* AnnotationDetailViewController.xib */; };
+		DB57B5D2262C52D200E10491 /* AnnotationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57B5D0262C52D200E10491 /* AnnotationDetailViewController.swift */; };
 		DBDB1349262B7E35004C82BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB1348262B7E35004C82BD /* AppDelegate.swift */; };
 		DBDB134B262B7E35004C82BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB134A262B7E35004C82BD /* SceneDelegate.swift */; };
 		DBDB134D262B7E35004C82BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB134C262B7E35004C82BD /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		DB57B5C3262C426200E10491 /* PizzaAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaAnnotation.swift; sourceTree = "<group>"; };
 		DB57B5C6262C48E700E10491 /* PizzaHistoryAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaHistoryAnnotations.swift; sourceTree = "<group>"; };
+		DB57B5CF262C52D200E10491 /* AnnotationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnotationDetailViewController.xib; sourceTree = "<group>"; };
+		DB57B5D0262C52D200E10491 /* AnnotationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationDetailViewController.swift; sourceTree = "<group>"; };
 		DBDB1345262B7E35004C82BD /* Land.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Land.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDB1348262B7E35004C82BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBDB134A262B7E35004C82BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		DBDB1347262B7E35004C82BD /* Land */ = {
 			isa = PBXGroup;
 			children = (
+				DB57B5D0262C52D200E10491 /* AnnotationDetailViewController.swift */,
+				DB57B5CF262C52D200E10491 /* AnnotationDetailViewController.xib */,
 				DBDB1348262B7E35004C82BD /* AppDelegate.swift */,
 				DBDB134A262B7E35004C82BD /* SceneDelegate.swift */,
 				DBDB134C262B7E35004C82BD /* ViewController.swift */,
@@ -143,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB57B5D1262C52D200E10491 /* AnnotationDetailViewController.xib in Resources */,
 				DBDB1355262B7E3A004C82BD /* LaunchScreen.storyboard in Resources */,
 				DBDB1352262B7E39004C82BD /* Assets.xcassets in Resources */,
 				DBDB1350262B7E35004C82BD /* Main.storyboard in Resources */,
@@ -160,6 +167,7 @@
 				DB57B5C7262C48E700E10491 /* PizzaHistoryAnnotations.swift in Sources */,
 				DB57B5C4262C426200E10491 /* PizzaAnnotation.swift in Sources */,
 				DBDB1349262B7E35004C82BD /* AppDelegate.swift in Sources */,
+				DB57B5D2262C52D200E10491 /* AnnotationDetailViewController.swift in Sources */,
 				DBDB134B262B7E35004C82BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

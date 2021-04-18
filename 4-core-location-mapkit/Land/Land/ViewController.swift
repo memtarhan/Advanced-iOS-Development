@@ -158,13 +158,24 @@ extension ViewController: MKMapViewDelegate {
         annotationView.canShowCallout = true
 
         let paragraph = UILabel()
-        paragraph.numberOfLines = 0
+        paragraph.numberOfLines = 1
         paragraph.font = UIFont.preferredFont(forTextStyle: .caption1)
-        paragraph.text = annotation.history
+        paragraph.adjustsFontSizeToFitWidth = true
+        paragraph.text = annotation.subtitle
         annotationView.detailCalloutAccessoryView = paragraph
 
         annotationView.leftCalloutAccessoryView = UIImageView(image: annotation.photo)
-        
+
+        annotationView.rightCalloutAccessoryView = UIButton(type: .infoLight)
+
         return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let destination = AnnotationDetailViewController(nibName: "AnnotationDetailViewController", bundle: nil)
+        destination.annotation = view.annotation as? PizzaAnnotation
+        destination.modalTransitionStyle = .crossDissolve
+        destination.modalPresentationStyle = .popover
+        present(destination, animated: true, completion: nil)
     }
 }
