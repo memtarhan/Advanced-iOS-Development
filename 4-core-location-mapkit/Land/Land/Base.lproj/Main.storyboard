@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="fUj-5t-Tzr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUj-5t-Tzr">
+                                <rect key="frame" x="0.0" y="116" width="414" height="687"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3x2-V2-4db">
                                 <rect key="frame" x="20" y="64" width="374" height="44"/>
@@ -101,12 +101,12 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3x2-V2-4db" secondAttribute="trailing" constant="20" id="4LY-rv-Yj8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jMJ-mA-Cp5" secondAttribute="bottom" constant="20" id="7Sr-zZ-4KD"/>
-                            <constraint firstItem="fUj-5t-Tzr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ExM-Hn-nLn"/>
                             <constraint firstItem="fUj-5t-Tzr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fxy-g2-kGR"/>
                             <constraint firstItem="3x2-V2-4db" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="H7v-29-kFw"/>
-                            <constraint firstAttribute="bottom" secondItem="fUj-5t-Tzr" secondAttribute="bottom" id="MBM-ZW-3da"/>
                             <constraint firstItem="3x2-V2-4db" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="OvF-4b-Ehx"/>
                             <constraint firstItem="fUj-5t-Tzr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bku-Kq-z26"/>
+                            <constraint firstItem="fUj-5t-Tzr" firstAttribute="top" secondItem="3x2-V2-4db" secondAttribute="bottom" constant="8" id="dJO-pZ-ddf"/>
+                            <constraint firstItem="jMJ-mA-Cp5" firstAttribute="top" secondItem="fUj-5t-Tzr" secondAttribute="bottom" constant="8" id="m4l-rt-OKd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jMJ-mA-Cp5" secondAttribute="trailing" constant="20" id="mQO-ge-68R"/>
                             <constraint firstItem="jMJ-mA-Cp5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mhI-sk-rqE"/>
                         </constraints>

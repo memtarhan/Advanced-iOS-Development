@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
 
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
+    var camera = MKMapCamera()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,7 @@ class ViewController: UIViewController {
         }
 
         updateMapRegion(rangeSpan: 100)
+        updateMapCamera(heading: 90, altitude: 5000.0)
     }
 
     // MARK: Instance Methods
@@ -84,5 +86,12 @@ class ViewController: UIViewController {
     func updateMapRegion(rangeSpan: CLLocationDistance) {
         let region = MKCoordinateRegion(center: coordinate2D, latitudinalMeters: rangeSpan, longitudinalMeters: rangeSpan)
         mapView.region = region
+    }
+
+    func updateMapCamera(heading: CLLocationDirection, altitude: CLLocationDistance) {
+        camera.centerCoordinate = coordinate2D
+        camera.altitude = altitude
+        camera.heading = heading
+        mapView.camera = camera
     }
 }
