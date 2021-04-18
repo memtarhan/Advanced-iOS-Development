@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB57B5C4262C426200E10491 /* PizzaAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57B5C3262C426200E10491 /* PizzaAnnotation.swift */; };
+		DB57B5C7262C48E700E10491 /* PizzaHistoryAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57B5C6262C48E700E10491 /* PizzaHistoryAnnotations.swift */; };
 		DBDB1349262B7E35004C82BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB1348262B7E35004C82BD /* AppDelegate.swift */; };
 		DBDB134B262B7E35004C82BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB134A262B7E35004C82BD /* SceneDelegate.swift */; };
 		DBDB134D262B7E35004C82BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB134C262B7E35004C82BD /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		DB57B5C3262C426200E10491 /* PizzaAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaAnnotation.swift; sourceTree = "<group>"; };
+		DB57B5C6262C48E700E10491 /* PizzaHistoryAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaHistoryAnnotations.swift; sourceTree = "<group>"; };
 		DBDB1345262B7E35004C82BD /* Land.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Land.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDB1348262B7E35004C82BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBDB134A262B7E35004C82BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				DBDB1353262B7E3A004C82BD /* LaunchScreen.storyboard */,
 				DBDB1356262B7E3A004C82BD /* Info.plist */,
 				DB57B5C3262C426200E10491 /* PizzaAnnotation.swift */,
+				DB57B5C6262C48E700E10491 /* PizzaHistoryAnnotations.swift */,
 			);
 			path = Land;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBDB134D262B7E35004C82BD /* ViewController.swift in Sources */,
+				DB57B5C7262C48E700E10491 /* PizzaHistoryAnnotations.swift in Sources */,
 				DB57B5C4262C426200E10491 /* PizzaAnnotation.swift in Sources */,
 				DBDB1349262B7E35004C82BD /* AppDelegate.swift in Sources */,
 				DBDB134B262B7E35004C82BD /* SceneDelegate.swift in Sources */,

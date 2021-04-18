@@ -41,6 +41,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mapView.delegate = self
+        mapView.addAnnotations(PizzaHistoryAnnotations().annotations)
         updateMapRegion(rangeSpan: 100)
     }
 
@@ -90,7 +92,7 @@ class ViewController: UIViewController {
     @IBAction func didChangeLocation(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
 
-        mapView.removeAnnotations(mapView.annotations)
+//        mapView.removeAnnotations(mapView.annotations)
 
         switch index {
         case 0: // Naples
@@ -98,8 +100,8 @@ class ViewController: UIViewController {
         case 1: // New York
             coordinate2D = CLLocationCoordinate2DMake(40.7216294, -73.995453)
             updateMapCamera(heading: 90, altitude: 250.0)
-            let pizzaPin = PizzaAnnotation(coordinate: coordinate2D, title: "New York Pizza", subtitle: "Pizza comes to America")
-            mapView.addAnnotation(pizzaPin)
+//            let pizzaPin = PizzaAnnotation(coordinate: coordinate2D, title: "New York Pizza", subtitle: "Pizza comes to America")
+//            mapView.addAnnotation(pizzaPin)
             return
         case 2: // Chicago
             coordinate2D = CLLocationCoordinate2DMake(41.892479, -87.6267592)
@@ -109,11 +111,11 @@ class ViewController: UIViewController {
             coordinate2D = CLLocationCoordinate2DMake(42.4056555, -82.1860369)
         case 4: // Beverly Hills
             coordinate2D = CLLocationCoordinate2DMake(34.0674607, -118.3977309)
-            let pizzaPin = MKPointAnnotation()
-            pizzaPin.coordinate = coordinate2D
-            pizzaPin.title = "Fusion Cuisine Pizza"
-            pizzaPin.subtitle = "Also known as California Pizza"
-            mapView.addAnnotation(pizzaPin)
+//            let pizzaPin = MKPointAnnotation()
+//            pizzaPin.coordinate = coordinate2D
+//            pizzaPin.title = "Fusion Cuisine Pizza"
+//            pizzaPin.subtitle = "Also known as California Pizza"
+//            mapView.addAnnotation(pizzaPin)
 
         default: // Naples
             coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
@@ -136,5 +138,22 @@ class ViewController: UIViewController {
         camera.pitch = 0.0
         mapView.camera = camera
         pitchButton.setTitle("\(0)°", for: .normal)
+    }
+}
+
+// MARK: - MKMapViewDelegate
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView = MKPinAnnotationView()
+        guard let annotation = annotation as? PizzaAnnotation else { return nil }
+        if let dequedView = mapView.dequeueReusableAnnotationView(withIdentifier: annotation.identifier) as? MKPinAnnotationView {
+            annotationView = dequedView
+
+        } else {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
+        }
+        annotationView.pinTintColor = .systemBlue
+        return annotationView
     }
 }
