@@ -154,6 +154,14 @@ extension ViewController: MKMapViewDelegate {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
         }
         annotationView.pinTintColor = .systemBlue
+        annotationView.canShowCallout = true
+
+        let paragraph = UILabel()
+        paragraph.numberOfLines = 0
+        paragraph.font = UIFont.preferredFont(forTextStyle: .caption1)
+        paragraph.text = annotation.history
+        annotationView.detailCalloutAccessoryView = paragraph
+
         return annotationView
     }
 }
