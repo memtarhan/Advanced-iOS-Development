@@ -35,6 +35,7 @@ class ViewController: UIViewController {
 
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     var camera = MKMapCamera()
+    var pitch = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,10 @@ class ViewController: UIViewController {
     @IBAction func didTapMapType(_ sender: Any) {
     }
 
-    @IBAction func didTapPitch(_ sender: Any) {
+    @IBAction func didTapPitch(_ sender: UIButton) {
+        pitch = (pitch + 15) % 90
+        sender.setTitle("\(pitch)°", for: .normal)
+        mapView.camera.pitch = CGFloat(pitch)
     }
 
     @IBAction func didTapFeatures(_ sender: Any) {
@@ -67,8 +71,12 @@ class ViewController: UIViewController {
             coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
         case 1: // New York
             coordinate2D = CLLocationCoordinate2DMake(40.7216294, -73.995453)
+            updateMapCamera(heading: 90, altitude: 250.0)
+            return
         case 2: // Chicago
             coordinate2D = CLLocationCoordinate2DMake(41.892479, -87.6267592)
+            updateMapCamera(heading: 90, altitude: 2.0)
+            return
         case 3: // Chatham
             coordinate2D = CLLocationCoordinate2DMake(42.4056555, -82.1860369)
         case 4: // Beverly Hills
@@ -78,7 +86,6 @@ class ViewController: UIViewController {
         }
 
         updateMapRegion(rangeSpan: 100)
-        updateMapCamera(heading: 90, altitude: 5000.0)
     }
 
     // MARK: Instance Methods
@@ -92,6 +99,8 @@ class ViewController: UIViewController {
         camera.centerCoordinate = coordinate2D
         camera.altitude = altitude
         camera.heading = heading
+        camera.pitch = 0.0
         mapView.camera = camera
+        pitchButton.setTitle("\(0)°", for: .normal)
     }
 }
