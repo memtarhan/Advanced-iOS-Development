@@ -45,7 +45,23 @@ class ViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func didTapMapType(_ sender: Any) {
+    @IBAction func didTapMapType(_ sender: UIButton) {
+        switch mapView.mapType {
+        case .standard:
+            mapView.mapType = .satellite
+        case .satellite:
+            mapView.mapType = .hybrid
+        case .hybrid:
+            mapView.mapType = .satelliteFlyover
+        case .satelliteFlyover:
+            mapView.mapType = .hybridFlyover
+        case .hybridFlyover:
+            mapView.mapType = .mutedStandard
+        case .mutedStandard:
+            mapView.mapType = .standard
+        @unknown default:
+            mapView.mapType = .standard
+        }
     }
 
     @IBAction func didTapPitch(_ sender: UIButton) {
