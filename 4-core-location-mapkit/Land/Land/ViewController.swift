@@ -150,7 +150,14 @@ class ViewController: UIViewController {
         let beverlyHills2 = annotations[6].coordinate
         let bhPolyline = MKPolyline(coordinates: [beverlyHills1, beverlyHills2], count: 2)
         bhPolyline.title = "BeverlyHills_Line"
-        mapView.addOverlays([bhPolyline])
+        var coordinates = [CLLocationCoordinate2D]()
+        for location in annotations {
+            coordinates.append(location.coordinate)
+        }
+        let grandTour = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        grandTour.title = "GrandTour_Line"
+
+        mapView.addOverlays([grandTour, bhPolyline])
     }
 
     func addDeliveryOverlay() {
@@ -213,6 +220,12 @@ extension ViewController: MKMapViewDelegate {
 
         } else if let polyline = overlay as? MKPolyline {
             let polylineRenderer = MKPolylineRenderer(polyline: polyline)
+
+            if polyline.title == "GrandTour_Line" {
+                polylineRenderer.strokeColor = .systemRed
+                polylineRenderer.lineWidth = 5.0
+                return polylineRenderer
+            }
             polylineRenderer.strokeColor = .systemGreen
             polylineRenderer.lineWidth = 3.0
             polylineRenderer.lineDashPattern = [20, 10, 2, 10]
