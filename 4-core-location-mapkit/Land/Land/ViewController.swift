@@ -143,10 +143,12 @@ class ViewController: UIViewController {
     }
 
     func addDeliveryOverlay() {
-        let radius = 160.0 // meters
+//        let radius = 160.0 // meters
         for location in mapView.annotations {
-            let circle = MKCircle(center: location.coordinate, radius: radius)
-            mapView.addOverlay(circle)
+            if let radius = (location as! PizzaAnnotation).deliveryRadius {
+                let circle = MKCircle(center: location.coordinate, radius: radius)
+                mapView.addOverlay(circle)
+            }
         }
     }
 }

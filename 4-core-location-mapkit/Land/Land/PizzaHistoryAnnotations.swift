@@ -15,12 +15,14 @@ class PizzaHistoryAnnotations {
         // Naples
         var annotation = PizzaAnnotation(coordinate: CLLocationCoordinate2DMake(40.8367321, 14.2468856), title: "Pizza Margherita", subtitle: "Street Food Nationalized")
         annotation.photo = UIImage(named: "Naples")
+        annotation.deliveryRadius = 30.0
         annotation.history = "Street Food Nationalized - The legend goes that King Umberto and Queen Margherita of Italy got tired of the royal food, which was always French. Looking for both something new and something Italian, in Naples they ordered a local pizzeria to make them pizza, which was up till then poor people's food.  The Queen loved a pizza of tomatoes, fresh mozzarella and basil so much the restaurant named the pizza after her. That the pizza was the colors of the Italian flag may not be a coinicidence. To this day to sell a true Neapolitan pizza, you must be certified by an association of pizza restaurants in Naples for the process and quality of ingredients."
         annotations.append(annotation)
 
         // New York
         annotation = PizzaAnnotation(coordinate: CLLocationCoordinate2DMake(40.7216294, -73.995453), title: "New York Pizza", subtitle: "Pizza Comes to America")
         annotation.photo = UIImage(named: "New York")
+        annotation.deliveryRadius = 30.0
         annotation.history = "The first known Pizza restaurant in the United States was in New York’s Little Italy. Gennaro Lombardi in 1905 opened his restaurant, but used a coal oven instead of a traditional wood burning oven, since coal was cheaper than wood in New York. New York Pizza breaks several traditions from its Italian ancestor. Most importantly it is sold in large slices, which meant whole pizzas were made larger than the traditional 14inch/35cm diameter. To make a larger pizza, a  higher gluten recipe is used for the crust, and the pizza is tossed in the air with a spinning motion to expand."
         annotations.append(annotation)
 
@@ -33,6 +35,7 @@ class PizzaHistoryAnnotations {
         // Chatham
         annotation = PizzaAnnotation(coordinate: CLLocationCoordinate2DMake(42.4056555, -82.1860369), title: "Hawaiian/Canandian Pizza", subtitle: "Non-Italian Ingredients")
         annotation.photo = UIImage(named: "Chatham")
+        annotation.deliveryRadius = 60.0
         annotation.history = "The so-called Hawaiian pizza is not Hawaiian -- It's Canadian. Greek immigrant  to Canada Sam Panopoulos added canned pineapple and Canadian bacon to a pizza in his small restaurant in Chatham, Canada. This is the one of the earliest pizzas without traditional Italian ingredients. As late as 2017, a few months before Panopoulos' death this was controversial, with purists angry about pineapple on a pizza. The president of Iceland started a near diplomatic incident between Canada and Iceland with his statement he would make pineapple on Pizza illegal if he could, with Canadians up in arms about their treasure."
         annotations.append(annotation)
 
