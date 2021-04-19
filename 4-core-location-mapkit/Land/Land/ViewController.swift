@@ -44,6 +44,8 @@ class ViewController: UIViewController {
         mapView.delegate = self
         mapView.addAnnotations(PizzaHistoryAnnotations().annotations)
         updateMapRegion(rangeSpan: 100)
+
+        addDeliveryOverlay()
     }
 
     // MARK: - Actions
@@ -99,13 +101,13 @@ class ViewController: UIViewController {
             coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
         case 1: // New York
             coordinate2D = CLLocationCoordinate2DMake(40.7216294, -73.995453)
-            updateMapCamera(heading: 90, altitude: 250.0)
+            updateMapCamera(heading: 90, altitude: 2500.0)
 //            let pizzaPin = PizzaAnnotation(coordinate: coordinate2D, title: "New York Pizza", subtitle: "Pizza comes to America")
 //            mapView.addAnnotation(pizzaPin)
             return
         case 2: // Chicago
             coordinate2D = CLLocationCoordinate2DMake(41.892479, -87.6267592)
-            updateMapCamera(heading: 90, altitude: 2.0)
+            updateMapCamera(heading: 90, altitude: 2000.0)
             return
         case 3: // Chatham
             coordinate2D = CLLocationCoordinate2DMake(42.4056555, -82.1860369)
@@ -138,6 +140,14 @@ class ViewController: UIViewController {
         camera.pitch = 0.0
         mapView.camera = camera
         pitchButton.setTitle("\(0)°", for: .normal)
+    }
+
+    func addDeliveryOverlay() {
+        let radius = 160.0 // meters
+        for location in mapView.annotations {
+            let circle = MKCircle(center: location.coordinate, radius: radius)
+            mapView.addOverlay(circle)
+        }
     }
 }
 
@@ -177,5 +187,17 @@ extension ViewController: MKMapViewDelegate {
         destination.modalTransitionStyle = .crossDissolve
         destination.modalPresentationStyle = .popover
         present(destination, animated: true, completion: nil)
+    }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let circle = overlay as? MKCircle {
+            let circleRenderer = MKCircleRenderer(circle: circle)
+            circleRenderer.fillColor = UIColor(red: 0.0, green: 0.1, blue: 1.0, alpha: 0.1)
+            circleRenderer.strokeColor = .systemBlue
+            circleRenderer.lineWidth = 1.0
+            return circleRenderer
+        }
+
+        return MKOverlayRenderer(overlay: overlay)
     }
 }
