@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         mapView.addAnnotations(PizzaHistoryAnnotations().annotations)
         updateMapRegion(rangeSpan: 100)
 
+        addPolylines()
         addDeliveryOverlay()
     }
 
@@ -118,6 +119,7 @@ class ViewController: UIViewController {
 //            pizzaPin.title = "Fusion Cuisine Pizza"
 //            pizzaPin.subtitle = "Also known as California Pizza"
 //            mapView.addAnnotation(pizzaPin)
+            updateMapCamera(heading: 0, altitude: 1500)
 
         default: // Naples
             coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
@@ -140,6 +142,15 @@ class ViewController: UIViewController {
         camera.pitch = 0.0
         mapView.camera = camera
         pitchButton.setTitle("\(0)°", for: .normal)
+    }
+
+    func addPolylines() {
+        let annotations = PizzaHistoryAnnotations().annotations
+        let beverlyHills1 = annotations[5].coordinate
+        let beverlyHills2 = annotations[6].coordinate
+        let bhPolyline = MKPolyline(coordinates: [beverlyHills1, beverlyHills2], count: 2)
+        bhPolyline.title = "BeverlyHills_Line"
+        mapView.addOverlays([bhPolyline])
     }
 
     func addDeliveryOverlay() {
@@ -197,7 +208,16 @@ extension ViewController: MKMapViewDelegate {
             circleRenderer.fillColor = UIColor(red: 0.0, green: 0.1, blue: 1.0, alpha: 0.1)
             circleRenderer.strokeColor = .systemBlue
             circleRenderer.lineWidth = 1.0
+
             return circleRenderer
+
+        } else if let polyline = overlay as? MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(polyline: polyline)
+            polylineRenderer.strokeColor = .systemGreen
+            polylineRenderer.lineWidth = 3.0
+            polylineRenderer.lineDashPattern = [20, 10, 2, 10]
+
+            return polylineRenderer
         }
 
         return MKOverlayRenderer(overlay: overlay)
