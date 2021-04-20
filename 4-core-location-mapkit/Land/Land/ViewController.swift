@@ -98,6 +98,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapFind(_ sender: Any) {
+        let address = "2121 N. Clart St. IL"
+        getCoordinate(forAddress: address) { coordinate, _, _ in
+            if let coordinate = coordinate {
+                print("Location: getCoordinate: \(coordinate)")
+                self.mapView.camera.centerCoordinate = coordinate
+                self.mapView.camera.altitude = 1000.0
+                let pin = PizzaAnnotation(coordinate: coordinate, title: address, subtitle: "\(coordinate)")
+                self.mapView.addAnnotation(pin)
+            }
+        }
     }
 
     @IBAction func didChangeLocation(_ sender: UISegmentedControl) {
@@ -229,6 +239,24 @@ class ViewController: UIViewController {
             }
         } else {
             print("Location: cannot monitor region in background")
+        }
+    }
+
+    // MARK: - Find
+
+    func getCoordinate(forAddress address: String, _ completionHandler: @escaping (CLLocationCoordinate2D?, String, NSError?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { placemarks, error in
+            if let error = error {
+                completionHandler(nil, "", error as NSError)
+
+            } else {
+                if let placemark = placemarks?.first {
+                    let coordinate = placemark.location?.coordinate
+                    let location = "\(placemark.locality!) \(placemark.isoCountryCode!)"
+                    completionHandler(coordinate, location, nil)
+                }
+            }
         }
     }
 }
