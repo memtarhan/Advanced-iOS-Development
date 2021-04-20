@@ -98,14 +98,35 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapFind(_ sender: Any) {
-        let address = "2121 N. Clart St. IL"
-        getCoordinate(forAddress: address) { coordinate, _, _ in
-            if let coordinate = coordinate {
-                print("Location: getCoordinate: \(coordinate)")
-                self.mapView.camera.centerCoordinate = coordinate
-                self.mapView.camera.altitude = 1000.0
-                let pin = PizzaAnnotation(coordinate: coordinate, title: address, subtitle: "\(coordinate)")
-                self.mapView.addAnnotation(pin)
+//        let address = "2121 N. Clart St. IL"
+//        getCoordinate(forAddress: address) { coordinate, _, _ in
+//            if let coordinate = coordinate {
+//                print("Location: getCoordinate: \(coordinate)")
+//                self.mapView.camera.centerCoordinate = coordinate
+//                self.mapView.camera.altitude = 1000.0
+//                let pin = PizzaAnnotation(coordinate: coordinate, title: address, subtitle: "\(coordinate)")
+//                self.mapView.addAnnotation(pin)
+//            }
+//        }
+
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "Pizza"
+        updateMapRegion(rangeSpan: 500)
+        request.region = mapView.region
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            if let error = error {
+                print("Location: Error while searching: \(error.localizedDescription)")
+
+            } else if let response = response {
+                for mapItem in response.mapItems {
+                    let placemark = mapItem.placemark
+                    let name = mapItem.name
+                    let coordinate = placemark.coordinate
+                    let streetAddress = placemark.thoroughfare
+                    let annotation = PizzaAnnotation(coordinate: coordinate, title: name, subtitle: streetAddress)
+                    self.mapView.addAnnotation(annotation)
+                }
             }
         }
     }
