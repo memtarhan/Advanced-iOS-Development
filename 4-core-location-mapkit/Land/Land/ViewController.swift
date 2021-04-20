@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     var pitch = 0
     var isOn = false
     var heading = 0.0
+    let onRampCoordinate = CLLocationCoordinate2DMake(37.3346, -122.0345)
 
     var locationManager = CLLocationManager()
 
@@ -203,17 +204,32 @@ class ViewController: UIViewController {
         } else {
             print("Location: CLLocationManager.locationServicesDisabled()")
         }
-        
+
         if CLLocationManager.headingAvailable() {
             locationManager.startUpdatingHeading()
-      
+
         } else {
             print("Location: CLLocationManager.headingNotAvailable()")
         }
+
+        monitorRegion(onRampCoordinate, radius: 100, id: "monitor_region")
     }
 
     func disableLocationServices() {
         locationManager.stopUpdatingLocation()
+    }
+
+    func monitorRegion(_ center: CLLocationCoordinate2D, radius: CLLocationDistance, id: String) {
+        if locationManager.authorizationStatus == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+                let region = CLCircularRegion(center: center, radius: radius, identifier: id)
+                region.notifyOnExit = true
+                region.notifyOnEntry = true
+                locationManager.startMonitoring(for: region)
+            }
+        } else {
+            print("Location: cannot monitor region in background")
+        }
     }
 }
 
@@ -318,8 +334,32 @@ extension ViewController: CLLocationManagerDelegate {
             mapView.addAnnotation(pizzaPin)
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         heading = newHeading.magneticHeading
+    }
+
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        print(#function)
+        let circularRegion = region as! CLCircularRegion
+        if circularRegion.identifier == "monitor_region" {
+            let alert = UIAlertController(title: "Heyyy", message: "You just exit the jungle", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print(#function)
+        let circularRegion = region as! CLCircularRegion
+        if circularRegion.identifier == "monitor_region" {
+            let alert = UIAlertController(title: "Heyyy", message: "You just entered the jungle", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+
+            present(alert, animated: true, completion: nil)
+        }
     }
 }
