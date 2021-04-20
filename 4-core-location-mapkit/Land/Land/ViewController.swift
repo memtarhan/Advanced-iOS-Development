@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     var camera = MKMapCamera()
     var pitch = 0
     var isOn = false
+    var heading = 0.0
 
     var locationManager = CLLocationManager()
 
@@ -81,6 +82,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapFeatures(_ sender: Any) {
+        disableLocationServices()
 //        mapView.showsBuildings = isOn
 //        isOn = !isOn
         isOn = !mapView.showsBuildings
@@ -201,6 +203,13 @@ class ViewController: UIViewController {
         } else {
             print("Location: CLLocationManager.locationServicesDisabled()")
         }
+        
+        if CLLocationManager.headingAvailable() {
+            locationManager.startUpdatingHeading()
+      
+        } else {
+            print("Location: CLLocationManager.headingNotAvailable()")
+        }
     }
 
     func disableLocationServices() {
@@ -297,6 +306,10 @@ extension ViewController: CLLocationManagerDelegate {
          */
         if let location = locations.last {
             coordinate2D = location.coordinate
+            let speedString = "\(location.speed * 2.23694) mph"
+            let headingString = "Heading: \(heading)°"
+            let courseString = headingString + " at " + speedString
+            print(courseString)
             let displayString = "\(location.timestamp) Coordinate: \(coordinate2D) Altitude: \(location.altitude) meters"
             print("Location: \(displayString)")
             updateMapRegion(rangeSpan: 200)
@@ -304,5 +317,9 @@ extension ViewController: CLLocationManagerDelegate {
             let pizzaPin = PizzaAnnotation(coordinate: coordinate2D, title: displayString, subtitle: nil)
             mapView.addAnnotation(pizzaPin)
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        heading = newHeading.magneticHeading
     }
 }
