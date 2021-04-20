@@ -38,8 +38,12 @@ class ViewController: UIViewController {
     var pitch = 0
     var isOn = false
 
+    var locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        locationManager.delegate = self
 
         mapView.delegate = self
         mapView.addAnnotations(PizzaHistoryAnnotations().annotations)
@@ -87,12 +91,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapHere(_ sender: Any) {
+        setupCoreLocation()
     }
 
     @IBAction func didTapFind(_ sender: Any) {
     }
 
     @IBAction func didChangeLocation(_ sender: UISegmentedControl) {
+        disableLocationServices()
+
         let index = sender.selectedSegmentIndex
 
 //        mapView.removeAnnotations(mapView.annotations)
@@ -169,6 +176,36 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    // MARK: - Location
+
+    func setupCoreLocation() {
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestAlwaysAuthorization()
+            break
+
+        case .authorizedAlways:
+            enableLocationServices()
+        default:
+            break
+        }
+    }
+
+    func enableLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            mapView.setUserTrackingMode(.follow, animated: true)
+
+        } else {
+            print("Location: CLLocationManager.locationServicesDisabled()")
+        }
+    }
+
+    func disableLocationServices() {
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 // MARK: - MKMapViewDelegate
@@ -234,5 +271,38 @@ extension ViewController: MKMapViewDelegate {
         }
 
         return MKOverlayRenderer(overlay: overlay)
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension ViewController: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways:
+            print("Location: authorized")
+        case .denied, .restricted:
+            print("Location: not authorized")
+        default:
+            break
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        /*
+         NOTES
+
+         There are three primary sensors for finding your coordinates. Cell phone towers, WiFi routers, and finally the GPS which receives satellite signals. They all use different amounts of power and have proportionally different accuracy levels with cell towers being inaccurate and low power to GPS being high power and accurate. Drift occurs from inaccuracy with all of them, but WiFi tends to be the most susceptible to drift issues. Core location doesn't let you pick which one you use, but instead asks you for the amount of accuracy you want.
+
+         */
+        if let location = locations.last {
+            coordinate2D = location.coordinate
+            let displayString = "\(location.timestamp) Coordinate: \(coordinate2D) Altitude: \(location.altitude) meters"
+            print("Location: \(displayString)")
+            updateMapRegion(rangeSpan: 200)
+
+            let pizzaPin = PizzaAnnotation(coordinate: coordinate2D, title: displayString, subtitle: nil)
+            mapView.addAnnotation(pizzaPin)
+        }
     }
 }
