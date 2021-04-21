@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     var isOn = false
     var heading = 0.0
     let onRampCoordinate = CLLocationCoordinate2DMake(37.3346, -122.0345)
+    var startMapItem = MKMapItem()
+    var destinationMapItem = MKMapItem()
 
     var locationManager = CLLocationManager()
 
@@ -293,8 +295,8 @@ class ViewController: UIViewController {
     // MARK: - Directions
 
     func findDirections(start: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
-        let startMapItem = MKMapItem(placemark: MKPlacemark(coordinate: start))
-        let destinationMapItem = MKMapItem(placemark: MKPlacemark(coordinate: destination))
+        startMapItem = MKMapItem(placemark: MKPlacemark(coordinate: start))
+        destinationMapItem = MKMapItem(placemark: MKPlacemark(coordinate: destination))
         let request = MKDirections.Request()
         request.source = startMapItem
         request.destination = destinationMapItem
@@ -304,9 +306,16 @@ class ViewController: UIViewController {
         let directions = MKDirections(request: request)
 
         if request.transportType == .transit {
-            destinationMapItem.name = "Pizza Pot Pie"
-            startMapItem.name = "Deep Dish Pizza"
-            MKMapItem.openMaps(with: [destinationMapItem, startMapItem], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeTransit])
+            directions.calculateETA { response, error in
+                if let error = error {
+                    print("Directions: \(error.localizedDescription)")
+
+                } else if let response = response {
+                    let annotation = PizzaAnnotation(coordinate: destination, title: "Destination", subtitle: String(format: "%4.2f minutes", response.expectedTravelTime / 60.0))
+                    annotation.identifier = "Transit"
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
             return
         }
         directions.calculate { response, error in
@@ -375,10 +384,15 @@ extension ViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let annotation = view.annotation as! PizzaAnnotation
+        if annotation.identifier == "Transit" {
+            destinationMapItem.name = "Pizza Pot Pie"
+            startMapItem.name = "Deep Dish Pizza"
+            MKMapItem.openMaps(with: [destinationMapItem, startMapItem], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeTransit])
+        }
+
         let destination = AnnotationDetailViewController(nibName: "AnnotationDetailViewController", bundle: nil)
         destination.annotation = view.annotation as? PizzaAnnotation
-        destination.modalTransitionStyle = .crossDissolve
-        destination.modalPresentationStyle = .popover
         present(destination, animated: true, completion: nil)
     }
 
