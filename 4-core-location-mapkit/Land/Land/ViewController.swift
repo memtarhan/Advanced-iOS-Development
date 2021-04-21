@@ -322,6 +322,7 @@ class ViewController: UIViewController {
 
                 for step in route.steps {
                     routeDescription += step.instructions + ". Go \(step.distance / 1609.344) mi \n"
+                    self.mapView.addOverlay(step.polyline)
                 }
                 annotation.history = routeDescription
 
