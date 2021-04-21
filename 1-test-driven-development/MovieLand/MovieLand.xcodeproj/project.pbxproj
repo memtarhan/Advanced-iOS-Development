@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DB33BE8F261B170C00F61768 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33BE8E261B170C00F61768 /* LibraryViewControllerTests.swift */; };
+		DB860D9C2630A64F00324977 /* MovieLibraryDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB860D9B2630A64F00324977 /* MovieLibraryDataServiceTests.swift */; };
+		DB860DA32630A6B500324977 /* MovieLibraryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE33F0261B828000DD58DD /* MovieLibraryDataService.swift */; };
+		DB860DA72630A6B500324977 /* MovieLibraryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE33F0261B828000DD58DD /* MovieLibraryDataService.swift */; };
 		DBBE33F1261B828000DD58DD /* MovieLibraryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE33F0261B828000DD58DD /* MovieLibraryDataService.swift */; };
 		DBBFEF99261A39FE00EC6DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEF98261A39FE00EC6DE4 /* AppDelegate.swift */; };
 		DBBFEF9B261A39FE00EC6DE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFEF9A261A39FE00EC6DE4 /* SceneDelegate.swift */; };
@@ -45,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		DB33BE8E261B170C00F61768 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
+		DB860D9B2630A64F00324977 /* MovieLibraryDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLibraryDataServiceTests.swift; sourceTree = "<group>"; };
 		DBBE33F0261B828000DD58DD /* MovieLibraryDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLibraryDataService.swift; sourceTree = "<group>"; };
 		DBBFEF95261A39FE00EC6DE4 /* MovieLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBFEF98261A39FE00EC6DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB860D9A2630A62F00324977 /* TestDataService */ = {
+			isa = PBXGroup;
+			children = (
+				DB860D9B2630A64F00324977 /* MovieLibraryDataServiceTests.swift */,
+			);
+			path = TestDataService;
+			sourceTree = "<group>";
+		};
 		DBBE33EF261B826200DD58DD /* DataService */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 		DBBFEFAE261A3A0100EC6DE4 /* MovieLandTests */ = {
 			isa = PBXGroup;
 			children = (
+				DB860D9A2630A62F00324977 /* TestDataService */,
 				DBBFEFE9261A453B00EC6DE4 /* TestControllers */,
 				DBBFEFE8261A453200EC6DE4 /* TestModels */,
 				DBBFEFB1261A3A0100EC6DE4 /* Info.plist */,
@@ -333,9 +346,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBFEFF7261A5E9800EC6DE4 /* MovieManager.swift in Sources */,
+				DB860DA32630A6B500324977 /* MovieLibraryDataService.swift in Sources */,
 				DBBFEFEB261A5E2400EC6DE4 /* MovieManagerTests.swift in Sources */,
 				DBBFEFDE261A434700EC6DE4 /* Movie.swift in Sources */,
 				DBBFEFD2261A421600EC6DE4 /* MovieStructTests.swift in Sources */,
+				DB860D9C2630A64F00324977 /* MovieLibraryDataServiceTests.swift in Sources */,
 				DB33BE8F261B170C00F61768 /* LibraryViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB860DA72630A6B500324977 /* MovieLibraryDataService.swift in Sources */,
 				DBBFEFE2261A434900EC6DE4 /* Movie.swift in Sources */,
 				DBBFEFFB261A5E9900EC6DE4 /* MovieManager.swift in Sources */,
 				DBBFEFBB261A3A0100EC6DE4 /* MovieLandUITests.swift in Sources */,
