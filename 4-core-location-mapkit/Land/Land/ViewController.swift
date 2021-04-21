@@ -109,26 +109,35 @@ class ViewController: UIViewController {
 //            }
 //        }
 
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Pizza"
-        updateMapRegion(rangeSpan: 500)
-        request.region = mapView.region
-        let search = MKLocalSearch(request: request)
-        search.start { response, error in
-            if let error = error {
-                print("Location: Error while searching: \(error.localizedDescription)")
+//        let request = MKLocalSearch.Request()
+//        request.naturalLanguageQuery = "Pizza"
+//        updateMapRegion(rangeSpan: 500)
+//        request.region = mapView.region
+//        let search = MKLocalSearch(request: request)
+//        search.start { response, error in
+//            if let error = error {
+//                print("Location: Error while searching: \(error.localizedDescription)")
+//
+//            } else if let response = response {
+//                for mapItem in response.mapItems {
+//                    let placemark = mapItem.placemark
+//                    let name = mapItem.name
+//                    let coordinate = placemark.coordinate
+//                    let streetAddress = placemark.thoroughfare
+//                    let annotation = PizzaAnnotation(coordinate: coordinate, title: name, subtitle: streetAddress)
+//                    self.mapView.addAnnotation(annotation)
+//                }
+//            }
+//        }
 
-            } else if let response = response {
-                for mapItem in response.mapItems {
-                    let placemark = mapItem.placemark
-                    let name = mapItem.name
-                    let coordinate = placemark.coordinate
-                    let streetAddress = placemark.thoroughfare
-                    let annotation = PizzaAnnotation(coordinate: coordinate, title: name, subtitle: streetAddress)
-                    self.mapView.addAnnotation(annotation)
-                }
-            }
-        }
+        let annotations = PizzaHistoryAnnotations().annotations
+        let spgo = annotations[5].coordinate
+        let cpk = annotations[6].coordinate
+        let cpog = annotations[4].coordinate
+        let uno = annotations[2].coordinate
+
+        findDirections(start: spgo, destination: cpk)
+        findDirections(start: cpog, destination: uno)
     }
 
     @IBAction func didChangeLocation(_ sender: UISegmentedControl) {
@@ -291,14 +300,21 @@ class ViewController: UIViewController {
         request.destination = destinationMapItem
         request.requestsAlternateRoutes = true
         request.transportType = .automobile
-        
+
         let directions = MKDirections(request: request)
-        directions.calculate { (response, error) in
+        directions.calculate { response, error in
             if let error = error {
                 print("Directions: \(error.localizedDescription)")
-            
+
             } else if let response = response {
-                
+                let routes = response.routes
+                print("Directions: didFindRoutes: \(routes.count)")
+                routes.forEach { route in
+                    let routeDescription = "\(route.expectedTravelTime / 60.0) min \(route.distance / 1609.344) miles \(route.name)"
+                    let polyline = route.polyline
+                    polyline.title = "Directions"
+                    self.mapView.addOverlay(polyline)
+                }
             }
         }
     }
@@ -357,6 +373,11 @@ extension ViewController: MKMapViewDelegate {
             if polyline.title == "GrandTour_Line" {
                 polylineRenderer.strokeColor = .systemRed
                 polylineRenderer.lineWidth = 5.0
+                return polylineRenderer
+            }
+            if polyline.title == "Directions" {
+                polylineRenderer.strokeColor = .systemBlue
+                polylineRenderer.lineWidth = 8.0
                 return polylineRenderer
             }
             polylineRenderer.strokeColor = .systemGreen
