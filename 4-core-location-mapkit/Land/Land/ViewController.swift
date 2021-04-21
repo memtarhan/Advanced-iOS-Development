@@ -310,11 +310,22 @@ class ViewController: UIViewController {
                 let routes = response.routes
                 print("Directions: didFindRoutes: \(routes.count)")
                 routes.forEach { route in
-                    let routeDescription = "\(route.expectedTravelTime / 60.0) min \(route.distance / 1609.344) miles \(route.name)"
                     let polyline = route.polyline
                     polyline.title = "Directions"
                     self.mapView.addOverlay(polyline)
                 }
+
+                let destination = response.destination.placemark.coordinate
+                let route = routes.first!
+                var routeDescription = "\(route.name) \(route.expectedTravelTime / 60.0) min \(route.distance / 1609.344) miles "
+                let annotation = PizzaAnnotation(coordinate: destination, title: "Destination", subtitle: routeDescription)
+
+                for step in route.steps {
+                    routeDescription += step.instructions + ". Go \(step.distance / 1609.344) mi \n"
+                }
+                annotation.history = routeDescription
+
+                self.mapView.addAnnotation(annotation)
             }
         }
     }
@@ -333,7 +344,12 @@ extension ViewController: MKMapViewDelegate {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
         }
 
-        annotationView.image = #imageLiteral(resourceName: "pizza pin")
+        if annotation.title == "Destination" {
+            annotationView.image = #imageLiteral(resourceName: "destination")
+
+        } else {
+            annotationView.image = #imageLiteral(resourceName: "pizza pin")
+        }
         annotationView.canShowCallout = true
 
         let paragraph = UILabel()
