@@ -299,9 +299,16 @@ class ViewController: UIViewController {
         request.source = startMapItem
         request.destination = destinationMapItem
         request.requestsAlternateRoutes = true
-        request.transportType = .automobile
+        request.transportType = .transit
 
         let directions = MKDirections(request: request)
+
+        if request.transportType == .transit {
+            destinationMapItem.name = "Pizza Pot Pie"
+            startMapItem.name = "Deep Dish Pizza"
+            MKMapItem.openMaps(with: [destinationMapItem, startMapItem], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeTransit])
+            return
+        }
         directions.calculate { response, error in
             if let error = error {
                 print("Directions: \(error.localizedDescription)")
