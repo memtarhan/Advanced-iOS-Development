@@ -280,6 +280,28 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    // MARK: - Directions
+
+    func findDirections(start: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
+        let startMapItem = MKMapItem(placemark: MKPlacemark(coordinate: start))
+        let destinationMapItem = MKMapItem(placemark: MKPlacemark(coordinate: destination))
+        let request = MKDirections.Request()
+        request.source = startMapItem
+        request.destination = destinationMapItem
+        request.requestsAlternateRoutes = true
+        request.transportType = .automobile
+        
+        let directions = MKDirections(request: request)
+        directions.calculate { (response, error) in
+            if let error = error {
+                print("Directions: \(error.localizedDescription)")
+            
+            } else if let response = response {
+                
+            }
+        }
+    }
 }
 
 // MARK: - MKMapViewDelegate
