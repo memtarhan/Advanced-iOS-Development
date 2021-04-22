@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
 
     var pedometer = CMPedometer()
+    var pedometerData = CMPedometerData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,9 @@ class ViewController: UIViewController {
                         print("Pedometer: error -> \(error.localizedDescription)")
 
                     } else if let data = data {
-                        self.stepsLabel.text = "\(data.numberOfSteps)"
+                        self.pedometerData = data
+                        self.update()
+                        print("Pedometer: data -> on \(Date()) - \(data.numberOfSteps)")
                     }
                 }
 
@@ -50,6 +53,27 @@ class ViewController: UIViewController {
             pedometer.stopUpdates()
             statusLabel.text = "Off"
             sender.setTitle("Start", for: .normal)
+        }
+    }
+
+    private func update() {
+        if let distance = pedometerData.distance {
+            DispatchQueue.main.async {
+                self.distanceLabel.text = String(format: "%6.2f", distance)
+            }
+        }
+
+        if CMPedometer.isPaceAvailable() {
+            DispatchQueue.main.async {
+                self.paceLabel.text = String(format: "%6.2f", self.pedometerData.averageActivePace!)
+            }
+
+        } else {
+            paceLabel.text = "Pace is not supported"
+        }
+
+        DispatchQueue.main.async {
+            self.stepsLabel.text = "\(self.pedometerData.numberOfSteps)"
         }
     }
 }
