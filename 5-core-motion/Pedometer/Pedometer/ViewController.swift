@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     var pedometer = CMPedometer()
     var pedometerData = CMPedometerData()
 
+    var timer = Timer()
+    var elapsedSeconds = 0.0
+    let interval = 0.1
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,13 +38,13 @@ class ViewController: UIViewController {
             sender.setTitle("Stop", for: .normal)
 
             if CMPedometer.isStepCountingAvailable() {
+                startTimer()
                 pedometer.startUpdates(from: Date()) { data, error in
                     if let error = error {
                         print("Pedometer: error -> \(error.localizedDescription)")
 
                     } else if let data = data {
                         self.pedometerData = data
-                        self.update()
                         print("Pedometer: data -> on \(Date()) - \(data.numberOfSteps)")
                     }
                 }
@@ -56,7 +60,30 @@ class ViewController: UIViewController {
         }
     }
 
-    private func update() {
+    func startTimer() {
+        print("Started timer on: \(Date())")
+        if !timer.isValid {
+            timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { _ in
+                self.displayPedometerData()
+                self.elapsedSeconds += self.interval
+            })
+        }
+    }
+
+    private func minutesSeconds(_ seconds: Double) -> String {
+        let mMinutes = Int(seconds) / 60
+        let mSeconds = Int(seconds) % 60
+        return String(format: "%02i:%02i", mMinutes, mSeconds)
+    }
+
+    private func calculatePace() -> Double {
+        if pedometerData.distance as! Int > 0 {
+            return elapsedSeconds / (pedometerData.distance as! Double)
+        }
+        return 0
+    }
+
+    private func displayPedometerData() {
         if let distance = pedometerData.distance {
             DispatchQueue.main.async {
                 self.distanceLabel.text = String(format: "%6.2f", distance)
@@ -65,7 +92,7 @@ class ViewController: UIViewController {
 
         if CMPedometer.isPaceAvailable() {
             DispatchQueue.main.async {
-                self.paceLabel.text = String(format: "%6.2f", self.pedometerData.averageActivePace!)
+                self.paceLabel.text = String(format: "%6.2f", self.calculatePace())
             }
 
         } else {
@@ -74,6 +101,7 @@ class ViewController: UIViewController {
 
         DispatchQueue.main.async {
             self.stepsLabel.text = "\(self.pedometerData.numberOfSteps)"
+            self.statusLabel.text = "On: \(self.minutesSeconds(self.elapsedSeconds))"
         }
     }
 }
