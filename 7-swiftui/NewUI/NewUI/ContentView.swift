@@ -10,23 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            HStack {
-                Text("Hello SwiftUI")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.green)
-                    .multilineTextAlignment(.center)
-                    .padding()
-            }
-            .padding()
-            HStack {
-                Text("Hello World")
-                    .padding()
-                Button(action: {
-                    print("DO NOT Tap Me!")
-                }, label: {
-                    Text("DO NOT Tap Me!")
-                })
-            }
+            Text("Hello SwiftUI")
+                .font(.largeTitle)
+                .foregroundColor(Color.green)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            Image("swiftui")
+                .aspectRatio(contentMode: .fit)
+                .padding(.all, 24.0)
         }
         .padding()
     }
