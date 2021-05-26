@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var name = ""
+
     var body: some View {
         VStack {
-            Text("Hello SwiftUI")
+            TextField("Enter something...", text: $name)
+                .padding()
+            Text("Hello \(name)")
                 .font(.largeTitle)
                 .foregroundColor(Color.green)
                 .multilineTextAlignment(.center)
                 .padding()
-            
-            Image("swiftui")
-                .aspectRatio(contentMode: .fit)
-                .padding(.all, 24.0)
         }
         .padding()
     }
