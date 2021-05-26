@@ -25,19 +25,9 @@ struct ContentView: View {
                 .padding()
 
             VStack {
-                HStack {
-                    ColorSwatch(color: .red)
-//                    Circle()
-//                        .frame(width: 20, height: 20, alignment: .center)
-//                        .foregroundColor(.red)
-//                    Slider(value: $red, in: 0 ... 1, step: 0.01)
-//                        .accentColor(.red)
-                }
-                .padding()
-                Slider(value: $green, in: 0 ... 1, step: 0.01)
-                    .accentColor(.green)
-                Slider(value: $blue, in: 0 ... 1, step: 0.01)
-                    .accentColor(.blue)
+                ColorSliderView(color: .red, colorValue: $red)
+                ColorSliderView(color: .green, colorValue: $green)
+                ColorSliderView(color: .blue, colorValue: $blue)
             }
             .padding()
         }
