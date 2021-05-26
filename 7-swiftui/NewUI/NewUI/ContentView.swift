@@ -12,12 +12,12 @@ struct ContentView: View {
         VStack {
             HStack {
                 Text("Hello SwiftUI")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.green)
+                    .multilineTextAlignment(.center)
                     .padding()
-                Button(action: {
-                }, label: {
-                    Text("Tap Me!")
-                })
             }
+            .padding()
             HStack {
                 Text("Hello World")
                     .padding()
@@ -28,6 +28,7 @@ struct ContentView: View {
                 })
             }
         }
+        .padding()
     }
 }
 
