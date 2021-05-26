@@ -15,8 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(DataModel.data, id: \.self) { object in
-                Text(object.title)
-                    .font(.headline)
+                NavigationLink(object.title, destination: DetailView(data: object))
             }
             .navigationTitle("My World")
         }

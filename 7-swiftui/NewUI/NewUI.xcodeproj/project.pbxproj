@@ -14,6 +14,7 @@
 		DBB6658C265F039A00BBA5FF /* ColorSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6658B265F039A00BBA5FF /* ColorSwatch.swift */; };
 		DBB6658E265F0B7700BBA5FF /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6658D265F0B7700BBA5FF /* ColorSliderView.swift */; };
 		DBB66590265F0F5C00BBA5FF /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6658F265F0F5C00BBA5FF /* DataModel.swift */; };
+		DBB66592265F131D00BBA5FF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB66591265F131D00BBA5FF /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DBB6658B265F039A00BBA5FF /* ColorSwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatch.swift; sourceTree = "<group>"; };
 		DBB6658D265F0B7700BBA5FF /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		DBB6658F265F0F5C00BBA5FF /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		DBB66591265F131D00BBA5FF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DBB6658B265F039A00BBA5FF /* ColorSwatch.swift */,
 				DBB6658D265F0B7700BBA5FF /* ColorSliderView.swift */,
 				DBB6658F265F0F5C00BBA5FF /* DataModel.swift */,
+				DBB66591265F131D00BBA5FF /* DetailView.swift */,
 			);
 			path = NewUI;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB66590265F0F5C00BBA5FF /* DataModel.swift in Sources */,
+				DBB66592265F131D00BBA5FF /* DetailView.swift in Sources */,
 				DBB6657F265EF7FB00BBA5FF /* ContentView.swift in Sources */,
 				DBB6658E265F0B7700BBA5FF /* ColorSliderView.swift in Sources */,
 				DBB6657D265EF7FB00BBA5FF /* NewUIApp.swift in Sources */,
