@@ -11,6 +11,7 @@
 		DBB6657F265EF7FB00BBA5FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6657E265EF7FB00BBA5FF /* ContentView.swift */; };
 		DBB66581265EF7FD00BBA5FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB66580265EF7FD00BBA5FF /* Assets.xcassets */; };
 		DBB66584265EF7FD00BBA5FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB66583265EF7FD00BBA5FF /* Preview Assets.xcassets */; };
+		DBB6658C265F039A00BBA5FF /* ColorSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6658B265F039A00BBA5FF /* ColorSwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		DBB66580265EF7FD00BBA5FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBB66583265EF7FD00BBA5FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DBB66585265EF7FD00BBA5FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBB6658B265F039A00BBA5FF /* ColorSwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				DBB66580265EF7FD00BBA5FF /* Assets.xcassets */,
 				DBB66585265EF7FD00BBA5FF /* Info.plist */,
 				DBB66582265EF7FD00BBA5FF /* Preview Content */,
+				DBB6658B265F039A00BBA5FF /* ColorSwatch.swift */,
 			);
 			path = NewUI;
 			sourceTree = "<group>";
@@ -97,6 +100,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = MEMTARHAN;
 				TargetAttributes = {
 					DBB66578265EF7FB00BBA5FF = {
 						CreatedOnToolsVersion = 12.5;
@@ -140,6 +144,7 @@
 			files = (
 				DBB6657F265EF7FB00BBA5FF /* ContentView.swift in Sources */,
 				DBB6657D265EF7FB00BBA5FF /* NewUIApp.swift in Sources */,
+				DBB6658C265F039A00BBA5FF /* ColorSwatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ struct ContentView: View {
         VStack {
             Text("Color Picker")
                 .font(.largeTitle)
-                .foregroundColor(Color.green)
+                .foregroundColor(Color(red: red, green: green, blue: blue, opacity: 1.0))
                 .multilineTextAlignment(.center)
                 .padding()
             Image(systemName: "scribble.variable")
@@ -25,8 +25,15 @@ struct ContentView: View {
                 .padding()
 
             VStack {
-                Slider(value: $red, in: 0 ... 1, step: 0.01)
-                    .accentColor(/*@START_MENU_TOKEN@*/ .red/*@END_MENU_TOKEN@*/)
+                HStack {
+                    ColorSwatch(color: .red)
+//                    Circle()
+//                        .frame(width: 20, height: 20, alignment: .center)
+//                        .foregroundColor(.red)
+//                    Slider(value: $red, in: 0 ... 1, step: 0.01)
+//                        .accentColor(.red)
+                }
+                .padding()
                 Slider(value: $green, in: 0 ... 1, step: 0.01)
                     .accentColor(.green)
                 Slider(value: $blue, in: 0 ... 1, step: 0.01)
