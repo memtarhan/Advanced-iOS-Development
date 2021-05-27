@@ -9,14 +9,23 @@
 import SwiftUI
 
 struct DetailView: View {
-    var data: TableData?
+    @State var popupShowing = false
     
+    var data: TableData?
+
     var body: some View {
         VStack {
             Text(data?.title ?? "")
                 .font(.largeTitle)
             Text(data?.detail ?? "")
                 .font(.headline)
+            Button("Popup") {
+                popupShowing.toggle()
+            }
+            .padding()
+            .sheet(isPresented: $popupShowing, content: {
+                Text("Hi there!")
+            })
         }
         .padding()
     }
