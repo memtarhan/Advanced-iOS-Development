@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1625" y="-648"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Des-Ml-lJI">
@@ -52,12 +52,102 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="F8y-WZ-azX"/>
+                        <segue destination="jBc-lM-Sel" kind="relationship" relationship="rootViewController" id="XNG-WD-nAE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNr-e0-7Lh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
+        </scene>
+        <!--Dynamics-->
+        <scene sceneID="wnq-sx-AEo">
+            <objects>
+                <viewController id="jBc-lM-Sel" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aWN-p7-dHn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Bkz-2P-oB8">
+                                <rect key="frame" x="64" y="160" width="286" height="108"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Am-Oh-pTV">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="r02-De-jIl"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Gravity"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="dwR-nw-6ly"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyM-aX-jai">
+                                        <rect key="frame" x="0.0" y="64" width="286" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Flick"/>
+                                        <connections>
+                                            <segue destination="gbF-cA-Nkl" kind="show" id="UC3-O6-WYJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O37-Dj-qdP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bkz-2P-oB8" firstAttribute="leading" secondItem="O37-Dj-qdP" secondAttribute="leading" constant="64" id="8pY-Vl-PIS"/>
+                            <constraint firstItem="Bkz-2P-oB8" firstAttribute="centerX" secondItem="aWN-p7-dHn" secondAttribute="centerX" id="S99-OK-95c"/>
+                            <constraint firstItem="Bkz-2P-oB8" firstAttribute="top" secondItem="O37-Dj-qdP" secondAttribute="top" constant="20" id="SQ1-QA-y33"/>
+                            <constraint firstItem="O37-Dj-qdP" firstAttribute="trailing" secondItem="Bkz-2P-oB8" secondAttribute="trailing" constant="64" id="dHF-xF-0wW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dynamics" id="wY5-Wo-g7U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eL6-kc-9PF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="84"/>
+        </scene>
+        <!--Flick-->
+        <scene sceneID="uCx-If-E07">
+            <objects>
+                <viewController id="gbF-cA-Nkl" customClass="FlickViewController" customModule="Dynamics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UEo-sm-6UP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cb-wU-0f3">
+                                <rect key="frame" x="143" y="384" width="128" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="6GH-hs-L8e"/>
+                                    <constraint firstAttribute="width" constant="128" id="gsz-Wn-PsW"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WON-09-V0M" appends="YES" id="Fru-1S-vOn"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ksd-b2-goD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4cb-wU-0f3" firstAttribute="centerX" secondItem="UEo-sm-6UP" secondAttribute="centerX" id="94U-PH-7g3"/>
+                            <constraint firstItem="4cb-wU-0f3" firstAttribute="centerY" secondItem="UEo-sm-6UP" secondAttribute="centerY" id="MPR-7O-jwU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Flick" id="D8U-y8-fmr"/>
+                    <connections>
+                        <outlet property="boxView" destination="4cb-wU-0f3" id="UTY-A9-LTc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHf-Rq-f0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="WON-09-V0M">
+                    <connections>
+                        <action selector="didFlick:" destination="gbF-cA-Nkl" id="Svv-RS-wBm"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1625" y="84"/>
         </scene>
     </scenes>
     <resources>

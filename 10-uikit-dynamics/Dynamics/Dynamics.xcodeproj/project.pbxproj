@@ -16,6 +16,7 @@
 		4370546727C7E36E003CC642 /* DynamicsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370546627C7E36E003CC642 /* DynamicsUITests.swift */; };
 		4370546927C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370546827C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift */; };
 		4370547627C7E412003CC642 /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547527C7E412003CC642 /* GravityViewController.swift */; };
+		4370547827C7E6A5003CC642 /* FlickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547727C7E6A5003CC642 /* FlickViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4370546627C7E36E003CC642 /* DynamicsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsUITests.swift; sourceTree = "<group>"; };
 		4370546827C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4370547527C7E412003CC642 /* GravityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
+		4370547727C7E6A5003CC642 /* FlickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				4370545027C7E36E003CC642 /* LaunchScreen.storyboard */,
 				4370545327C7E36E003CC642 /* Info.plist */,
 				4370547527C7E412003CC642 /* GravityViewController.swift */,
+				4370547727C7E6A5003CC642 /* FlickViewController.swift */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4370547827C7E6A5003CC642 /* FlickViewController.swift in Sources */,
 				4370544627C7E36B003CC642 /* AppDelegate.swift in Sources */,
 				4370544827C7E36B003CC642 /* SceneDelegate.swift in Sources */,
 				4370547627C7E412003CC642 /* GravityViewController.swift in Sources */,
