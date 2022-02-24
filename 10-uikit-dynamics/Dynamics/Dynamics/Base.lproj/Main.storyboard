@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Bkz-2P-oB8">
-                                <rect key="frame" x="64" y="160" width="286" height="172"/>
+                                <rect key="frame" x="64" y="160" width="286" height="236"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Am-Oh-pTV">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
@@ -95,6 +95,14 @@
                                         <buttonConfiguration key="configuration" style="tinted" title="Spring"/>
                                         <connections>
                                             <segue destination="3Na-b8-cIV" kind="show" id="TZc-fy-dVy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDL-81-lHj">
+                                        <rect key="frame" x="0.0" y="192" width="286" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Pendulum"/>
+                                        <connections>
+                                            <segue destination="z6t-Xf-PpP" kind="show" id="q7o-lu-3JL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -156,6 +164,48 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1625" y="84"/>
+        </scene>
+        <!--Pendulum-->
+        <scene sceneID="1rw-ov-EU6">
+            <objects>
+                <viewController id="z6t-Xf-PpP" customClass="PendulumViewController" customModule="Dynamics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DPk-FY-9P5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXl-2V-hK8">
+                                <rect key="frame" x="159" y="160" width="96" height="96"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="9OM-Ss-vng"/>
+                                    <constraint firstAttribute="width" constant="96" id="tmB-nD-zFv"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bg4-Wm-DSZ" appends="YES" id="iE0-YB-Lf0"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fAh-YS-s4x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FXl-2V-hK8" firstAttribute="centerX" secondItem="DPk-FY-9P5" secondAttribute="centerX" id="Lqb-jh-Z1w"/>
+                            <constraint firstItem="FXl-2V-hK8" firstAttribute="top" secondItem="fAh-YS-s4x" secondAttribute="top" constant="20" id="pQ1-gk-n2f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pendulum" id="QVA-WS-MZl"/>
+                    <connections>
+                        <outlet property="boxView" destination="FXl-2V-hK8" id="fb6-Xm-Cl7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WgM-6v-esg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bg4-Wm-DSZ">
+                    <connections>
+                        <action selector="didDrag:" destination="z6t-Xf-PpP" id="MeC-Rq-xPh"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2477" y="84"/>
         </scene>
         <!--Spring-->
         <scene sceneID="2re-5m-v8K">

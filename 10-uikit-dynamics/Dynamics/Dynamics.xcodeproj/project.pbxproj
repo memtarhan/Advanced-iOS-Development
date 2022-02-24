@@ -18,6 +18,8 @@
 		4370547627C7E412003CC642 /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547527C7E412003CC642 /* GravityViewController.swift */; };
 		4370547827C7E6A5003CC642 /* FlickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547727C7E6A5003CC642 /* FlickViewController.swift */; };
 		4370547A27C7EBBB003CC642 /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547927C7EBBB003CC642 /* SpringViewController.swift */; };
+		4370547C27C801C8003CC642 /* PendulumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547B27C801C8003CC642 /* PendulumViewController.swift */; };
+		4370547E27C801EB003CC642 /* PendulumBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547D27C801EB003CC642 /* PendulumBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		4370547527C7E412003CC642 /* GravityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
 		4370547727C7E6A5003CC642 /* FlickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickViewController.swift; sourceTree = "<group>"; };
 		4370547927C7EBBB003CC642 /* SpringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringViewController.swift; sourceTree = "<group>"; };
+		4370547B27C801C8003CC642 /* PendulumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumViewController.swift; sourceTree = "<group>"; };
+		4370547D27C801EB003CC642 /* PendulumBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				4370547527C7E412003CC642 /* GravityViewController.swift */,
 				4370547727C7E6A5003CC642 /* FlickViewController.swift */,
 				4370547927C7EBBB003CC642 /* SpringViewController.swift */,
+				4370547B27C801C8003CC642 /* PendulumViewController.swift */,
+				4370547D27C801EB003CC642 /* PendulumBehavior.swift */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 			files = (
 				4370547827C7E6A5003CC642 /* FlickViewController.swift in Sources */,
 				4370544627C7E36B003CC642 /* AppDelegate.swift in Sources */,
+				4370547E27C801EB003CC642 /* PendulumBehavior.swift in Sources */,
+				4370547C27C801C8003CC642 /* PendulumViewController.swift in Sources */,
 				4370544827C7E36B003CC642 /* SceneDelegate.swift in Sources */,
 				4370547A27C7EBBB003CC642 /* SpringViewController.swift in Sources */,
 				4370547627C7E412003CC642 /* GravityViewController.swift in Sources */,
