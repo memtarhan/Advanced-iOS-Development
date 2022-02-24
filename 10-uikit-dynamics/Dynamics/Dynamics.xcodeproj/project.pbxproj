@@ -17,6 +17,7 @@
 		4370546927C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370546827C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift */; };
 		4370547627C7E412003CC642 /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547527C7E412003CC642 /* GravityViewController.swift */; };
 		4370547827C7E6A5003CC642 /* FlickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547727C7E6A5003CC642 /* FlickViewController.swift */; };
+		4370547A27C7EBBB003CC642 /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547927C7EBBB003CC642 /* SpringViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4370546827C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4370547527C7E412003CC642 /* GravityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
 		4370547727C7E6A5003CC642 /* FlickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickViewController.swift; sourceTree = "<group>"; };
+		4370547927C7EBBB003CC642 /* SpringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				4370545327C7E36E003CC642 /* Info.plist */,
 				4370547527C7E412003CC642 /* GravityViewController.swift */,
 				4370547727C7E6A5003CC642 /* FlickViewController.swift */,
+				4370547927C7EBBB003CC642 /* SpringViewController.swift */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				4370547827C7E6A5003CC642 /* FlickViewController.swift in Sources */,
 				4370544627C7E36B003CC642 /* AppDelegate.swift in Sources */,
 				4370544827C7E36B003CC642 /* SceneDelegate.swift in Sources */,
+				4370547A27C7EBBB003CC642 /* SpringViewController.swift in Sources */,
 				4370547627C7E412003CC642 /* GravityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

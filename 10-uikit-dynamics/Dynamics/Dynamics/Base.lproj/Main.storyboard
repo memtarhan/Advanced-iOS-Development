@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Bkz-2P-oB8">
-                                <rect key="frame" x="64" y="160" width="286" height="108"/>
+                                <rect key="frame" x="64" y="160" width="286" height="172"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Am-Oh-pTV">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
@@ -87,6 +87,14 @@
                                         <buttonConfiguration key="configuration" style="tinted" title="Flick"/>
                                         <connections>
                                             <segue destination="gbF-cA-Nkl" kind="show" id="UC3-O6-WYJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUP-R3-P3S">
+                                        <rect key="frame" x="0.0" y="128" width="286" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Spring"/>
+                                        <connections>
+                                            <segue destination="3Na-b8-cIV" kind="show" id="TZc-fy-dVy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -148,6 +156,39 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1625" y="84"/>
+        </scene>
+        <!--Spring-->
+        <scene sceneID="2re-5m-v8K">
+            <objects>
+                <viewController id="3Na-b8-cIV" customClass="SpringViewController" customModule="Dynamics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UMw-cx-4jL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvg-h1-2Rw">
+                                <rect key="frame" x="159" y="160" width="96" height="96"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="5lT-NS-XVd"/>
+                                    <constraint firstAttribute="height" constant="96" id="I8G-0a-Pgz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l81-Oc-a2V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wvg-h1-2Rw" firstAttribute="centerX" secondItem="UMw-cx-4jL" secondAttribute="centerX" id="2Fv-bp-hWv"/>
+                            <constraint firstItem="Wvg-h1-2Rw" firstAttribute="top" secondItem="l81-Oc-a2V" secondAttribute="top" constant="20" id="EHl-mr-AoD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Spring" id="mIB-Bf-TJH"/>
+                    <connections>
+                        <outlet property="boxView" destination="Wvg-h1-2Rw" id="Ijn-pq-gDr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ztR-HT-VLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="809"/>
         </scene>
     </scenes>
     <resources>
