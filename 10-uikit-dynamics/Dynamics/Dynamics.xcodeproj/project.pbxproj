@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		4370544627C7E36B003CC642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370544527C7E36B003CC642 /* AppDelegate.swift */; };
 		4370544827C7E36B003CC642 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370544727C7E36B003CC642 /* SceneDelegate.swift */; };
-		4370544A27C7E36B003CC642 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370544927C7E36B003CC642 /* ViewController.swift */; };
 		4370544D27C7E36B003CC642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4370544B27C7E36B003CC642 /* Main.storyboard */; };
 		4370544F27C7E36E003CC642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4370544E27C7E36E003CC642 /* Assets.xcassets */; };
 		4370545227C7E36E003CC642 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4370545027C7E36E003CC642 /* LaunchScreen.storyboard */; };
 		4370545D27C7E36E003CC642 /* DynamicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370545C27C7E36E003CC642 /* DynamicsTests.swift */; };
 		4370546727C7E36E003CC642 /* DynamicsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370546627C7E36E003CC642 /* DynamicsUITests.swift */; };
 		4370546927C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370546827C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift */; };
+		4370547627C7E412003CC642 /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370547527C7E412003CC642 /* GravityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		4370544227C7E36B003CC642 /* Dynamics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dynamics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4370544527C7E36B003CC642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4370544727C7E36B003CC642 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4370544927C7E36B003CC642 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4370544C27C7E36B003CC642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4370544E27C7E36E003CC642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4370545127C7E36E003CC642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		4370546227C7E36E003CC642 /* DynamicsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4370546627C7E36E003CC642 /* DynamicsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsUITests.swift; sourceTree = "<group>"; };
 		4370546827C7E36E003CC642 /* DynamicsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4370547527C7E412003CC642 /* GravityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +101,11 @@
 			children = (
 				4370544527C7E36B003CC642 /* AppDelegate.swift */,
 				4370544727C7E36B003CC642 /* SceneDelegate.swift */,
-				4370544927C7E36B003CC642 /* ViewController.swift */,
 				4370544B27C7E36B003CC642 /* Main.storyboard */,
 				4370544E27C7E36E003CC642 /* Assets.xcassets */,
 				4370545027C7E36E003CC642 /* LaunchScreen.storyboard */,
 				4370545327C7E36E003CC642 /* Info.plist */,
+				4370547527C7E412003CC642 /* GravityViewController.swift */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -192,6 +192,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = "Mehmet Tarhan";
 				TargetAttributes = {
 					4370544127C7E36B003CC642 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -258,9 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4370544A27C7E36B003CC642 /* ViewController.swift in Sources */,
 				4370544627C7E36B003CC642 /* AppDelegate.swift in Sources */,
 				4370544827C7E36B003CC642 /* SceneDelegate.swift in Sources */,
+				4370547627C7E412003CC642 /* GravityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
