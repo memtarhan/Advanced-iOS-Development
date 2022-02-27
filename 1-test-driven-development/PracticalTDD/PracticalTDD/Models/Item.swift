@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item {
+struct Item: Codable {
     var id: String
     var title: String
     var isCompleted: Bool = false
