@@ -14,6 +14,10 @@ class ItemService {
         self.isTest = isTest
     }
 
+    func getItems() -> [Item] {
+        return getMockItems()
+    }
+    
     func getItems(_ completion: ([Item]) -> Void) {
         completion(getMockItems())
 //        if isTest {
