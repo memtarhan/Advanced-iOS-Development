@@ -66,27 +66,54 @@ import SwiftUI
 
 // MARK: - Displaying Images
 
+// struct ContentView: View {
+//    var body: some View {
+//        VStack(spacing: 64) {
+//            HStack(spacing: 16) {
+//                Image(systemName: "tortoise.fill")
+//                    .opacity(0.33)
+//                Image(systemName: "tortoise.fill")
+//                    .font(.largeTitle)
+//                    .opacity(0.66)
+//                Image(systemName: "tortoise.fill")
+//                    .font(.custom("", size: 46))
+//            }
+//
+//            HStack {
+//                Image(systemName: "tortoise.fill")
+//                    .font(.largeTitle)
+//                    .frame(width: 150, height: 150)
+//                    .aspectRatio(0.5, contentMode: .fill)
+//            }
+//
+//        }.padding()
+//    }
+// }
+
+// MARK: - Clipping Images
+
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 64) {
-            HStack(spacing: 16) {
-                Image(systemName: "tortoise.fill")
-                    .opacity(0.33)
-                Image(systemName: "tortoise.fill")
-                    .font(.largeTitle)
-                    .opacity(0.66)
-                Image(systemName: "tortoise.fill")
-                    .font(.custom("", size: 46))
-            }
+        Image("parrot")
+            .resizable()
+            .frame(width: 320, height: 320)
+            .aspectRatio(contentMode: .fill)
+            .clipShape(Circle())
+        
+        // Shadow
+        /*
+         Color – Defines the shadow’s color.
 
-            HStack {
-                Image(systemName: "tortoise.fill")
-                    .font(.largeTitle)
-                    .frame(width: 150, height: 150)
-                    .aspectRatio(0.5, contentMode: .fill)
-            }
+         Radius – Defines the shadow’s size around the view.
 
-        }.padding()
+         X – Defines the x (horizontal) offset of the shadow; a value of 0 centers the shadow in the horizontal direction around the view.
+
+         Y – Defines the y (vertical) offset of the shadow; a value of 0 centers the shadow in the vertical direction around the view.
+         */
+            .shadow(color: .gray.opacity(0.3), radius: 46, x: 0, y: 0)
+        
+        // Border
+            .overlay(Rectangle().stroke(Color.blue, lineWidth: 10))
     }
 }
 
