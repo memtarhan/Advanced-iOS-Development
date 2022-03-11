@@ -7,22 +7,49 @@
 
 import SwiftUI
 
+// struct ContentView: View {
+//    var body: some View {
+//        VStack {
+//            Text("This is a non-limited Text, \n it has no line limit. \n It can do whatever it wants! \n Ha ha ha")
+//                .padding()
+//                .background(Color.yellow)
+//
+//            Text("This is only \n 2 line Text")
+//                .font(.footnote)
+//                .fontWeight(.semibold)
+//                .foregroundColor(Color.red)
+//                .multilineTextAlignment(.center)
+//                .lineLimit(2)
+//                .padding()
+//                .background(Color.yellow)
+//                .truncationMode(.tail)
+//        }
+//    }
+// }
+
+// MARK: - Using the Label View
+
+// - Similar to the Text view is the Label view. While the Text view just displays a single string of text, the Label view can display both a string and an image side by side
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("This is a non-limited Text, \n it has no line limit. \n It can do whatever it wants! \n Ha ha ha")
-                .padding()
-                .background(Color.yellow)
+            Label("House", systemImage: "house.fill")
+            Label("Custom image", image: "custom")
 
-            Text("This is only \n 2 line Text")
-                .font(.footnote)
-                .fontWeight(.semibold)
-                .foregroundColor(Color.red)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-                .padding()
-                .background(Color.yellow)
-                .truncationMode(.tail)
+            // More customizable Label
+            Label {
+                Text("More customized")
+                    .font(.title)
+            } icon: {
+                Image(systemName: "pencil")
+                    .font(.title)
+                    .opacity(0.25)
+            }
+
+            // Icon only
+            Label("Icon only", systemImage: "hare.fill")
+                .labelStyle(.iconOnly)
         }
     }
 }
