@@ -65,50 +65,92 @@ import SwiftUI
 
 //       - Aligning Views Within a Stack
 
+// struct ContentView: View {
+//    var body: some View {
+//        VStack {
+//            // No padding
+////        VStack {
+////            Text("Top Text view")
+////                .background(Color.yellow)
+////            Text("Middle Text view")
+////                .background(Color.yellow)
+////            Text("Bottom Text view")
+////                .background(Color.yellow)
+////        }
+//
+//            // With padding
+//            VStack {
+//                Text("Top Text view")
+//                    .padding()
+//                    .background(Color.yellow)
+//                Text("Middle Text view")
+//                    .padding()
+//                    .background(Color.yellow)
+//                Text("Bottom Text view")
+//                    .padding()
+//                    .background(Color.yellow)
+//            }
+//
+//            // With Spacing & alignment
+//            /*
+//             .leading (left)
+//
+//             .center (default setting if no other alignment options are chosen)
+//
+//             .trailing (right)
+//             */
+//
+//            VStack(alignment: .leading, spacing: 40) {
+//                Text("Top Text view")
+//                    .background(Color.yellow)
+//                Text("Middle Text view")
+//                    .background(Color.yellow)
+//                Text("Bottom Text view")
+//                    .background(Color.yellow)
+//            }
+//        }
+//    }
+// }
+
+// MARK: - Using Spacers
+
+// - A spacer acts like a spring that pushes two views as far apart as possible
+/*
+ Spacers automatically adjust their size based on screen size. However, you may want to define a minimum length for a spacer to keep it from shrinking too far. To define a minimum length, use the following code:
+ Spacer(minLength: 25.73)
+ Notice that you can define the minimum length as a decimal value (CGFloat) although you could use an integer value as well such as
+ Spacer(minLength: 25)
+ If you do not specify a minimum length, the spacer will simply grow or shrink based on the screen size that the app is running in.
+ */
 struct ContentView: View {
     var body: some View {
         VStack {
-            // No padding
-//        VStack {
-//            Text("Top Text view")
-//                .background(Color.yellow)
-//            Text("Middle Text view")
-//                .background(Color.yellow)
-//            Text("Bottom Text view")
-//                .background(Color.yellow)
-//        }
+            HStack {
+                Text("Left")
+                    .font(.system(size: 40))
+                    .background(Color.yellow)
+                Spacer()
+                Text("Right")
+                    .font(.system(size: 40))
+                    .background(Color.yellow)
+            }.padding()
 
-            // With padding
+            Spacer()
+
             VStack {
-                Text("Top Text view")
-                    .padding()
+                Text("Top")
+                    .font(.title)
                     .background(Color.yellow)
-                Text("Middle Text view")
-                    .padding()
+                Spacer()
+                Text("Middle")
+                    .font(.title)
                     .background(Color.yellow)
-                Text("Bottom Text view")
-                    .padding()
+                Spacer()
+                Text("Bottom")
+                    .font(.title)
                     .background(Color.yellow)
-            }
-
-            // With Spacing & alignment
-            /*
-             .leading (left)
-
-             .center (default setting if no other alignment options are chosen)
-
-             .trailing (right)
-             */
-
-            VStack(alignment: .leading, spacing: 40) {
-                Text("Top Text view")
-                    .background(Color.yellow)
-                Text("Middle Text view")
-                    .background(Color.yellow)
-                Text("Bottom Text view")
-                    .background(Color.yellow)
-            }
-        }
+            }.padding()
+        }.padding()
     }
 }
 
