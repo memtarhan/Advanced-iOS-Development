@@ -122,35 +122,59 @@ import SwiftUI
  Spacer(minLength: 25)
  If you do not specify a minimum length, the spacer will simply grow or shrink based on the screen size that the app is running in.
  */
+
+// struct ContentView: View {
+//    var body: some View {
+//        VStack {
+//            HStack {
+//                Text("Left")
+//                    .font(.system(size: 40))
+//                    .background(Color.yellow)
+//                Spacer()
+//                Text("Right")
+//                    .font(.system(size: 40))
+//                    .background(Color.yellow)
+//            }.padding()
+//
+//            Spacer()
+//
+//            VStack {
+//                Text("Top")
+//                    .font(.title)
+//                    .background(Color.yellow)
+//                Spacer()
+//                Text("Middle")
+//                    .font(.title)
+//                    .background(Color.yellow)
+//                Spacer()
+//                Text("Bottom")
+//                    .font(.title)
+//                    .background(Color.yellow)
+//            }.padding()
+//        }.padding()
+//    }
+// }
+
+// MARK: - Using the Offset and Position Modifiers
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            HStack {
-                Text("Left")
-                    .font(.system(size: 40))
-                    .background(Color.yellow)
-                Spacer()
-                Text("Right")
-                    .font(.system(size: 40))
-                    .background(Color.yellow)
-            }.padding()
-
-            Spacer()
-
-            VStack {
-                Text("Top")
-                    .font(.title)
-                    .background(Color.yellow)
-                Spacer()
-                Text("Middle")
-                    .font(.title)
-                    .background(Color.yellow)
-                Spacer()
-                Text("Bottom")
-                    .font(.title)
-                    .background(Color.yellow)
-            }.padding()
-        }.padding()
+        ZStack {
+            Text("Top")
+                .font(.title)
+                .background(Color.red)
+            Text("Top")
+                .font(.title)
+                .background(Color.green)
+                .offset(x: 75, y: 125)
+            /*
+             Positive x values move a view to the right, and negative x values move a view to the left. Likewise, positive y values move a view down, and negative values move a view up
+             */
+            Text("Top")
+                .font(.title)
+                .background(Color.blue)
+                .offset(x: -75, y: -125)
+        }
     }
 }
 
