@@ -58,26 +58,76 @@ import SwiftUI
  The moment you change the value of a State variable, anything that uses that State variable automatically gets the latest data stored in that State variable without the need to write any extra code. When a variable holds one value, it’s in one state, and when that same variable holds a different value, that’s a second state.
  */
 
-struct ContentView: View {
-    @State var colored = false
-    
-    var body: some View {
-        VStack(spacing: 64) {
-            Button {
-                // Actions
-                colored.toggle()
-            } label: {
-                Image("parrot")
-                    .resizable()
-                    .frame(width: 160, height: 160)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(colored ? Color.yellow : Color.clear, lineWidth: 4))
-            }
+// struct ContentView: View {
+//    @State var colored = false
+//
+//    var body: some View {
+//        VStack(spacing: 64) {
+//            Button {
+//                // Actions
+//                colored.toggle()
+//            } label: {
+//                Image("parrot")
+//                    .resizable()
+//                    .frame(width: 160, height: 160)
+//                    .clipShape(Circle())
+//                    .overlay(Circle().stroke(colored ? Color.yellow : Color.clear, lineWidth: 4))
+//            }
+//
+//            Rectangle()
+//                .fill(colored ? Color.green : Color.gray)
+//                .frame(width: 240, height: 128)
+//
+//        }.padding()
+//    }
+// }
 
-            Rectangle()
-                .fill(colored ? Color.green : Color.gray)
-                .frame(width: 240, height: 128)
-            
+// MARK: - Using a Segmented Control
+
+// The main idea behind a segmented control is to display two or more options in a condensed space rather than use multiple Buttons.
+
+struct ContentView: View {
+    @State private var selectedColor = Color.gray
+    @State private var message = "This is my mood"
+
+    var body: some View {
+        VStack(spacing: 32) {
+            Picker("Favorite Color", selection: $selectedColor, content: {
+                Text("Red").tag(Color.red)
+                Text("Green").tag(Color.green)
+                Text("Blue").tag(Color.blue)
+            }).pickerStyle(SegmentedPickerStyle())
+
+            Picker("Favorite Color", selection: $selectedColor, content: {
+                Text("Red").tag(Color.red)
+                Text("Green").tag(Color.green)
+                Text("Blue").tag(Color.blue)
+            })
+
+            Picker("", selection: $message, content: {
+                Text("Happy").tag("happy")
+                Text("Sad").tag("sad")
+                Text("Bored").tag("bored")
+            }).pickerStyle(SegmentedPickerStyle())
+                .onChange(of: message) { newValue in
+                    switch newValue {
+                    case "happy":
+                        message = "Be happy and joyous"
+                    case "sad":
+                        message = "Life can be a struggle at times"
+                    case "bored":
+                        message = "Look for your purpose"
+                    default:
+                        break
+                    }
+                }
+            ZStack {
+                Rectangle()
+                    .fill(selectedColor)
+                Text(message)
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+            }
         }.padding()
     }
 }
