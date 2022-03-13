@@ -29,14 +29,42 @@ import SwiftUI
 
 // MARK: - Displaying Array Data in a List
 
+// struct ContentView: View {
+//    var myArray = ["Cat", "Dog", "Turtle", "Ferret", "Parrot", "Goldfish", "Lizard", "Canary", "Tarantula", "Hamster"]
+//
+//    var body: some View {
+//        List {
+//            ForEach(0 ... myArray.count - 1, id: \.self) { index in
+//                Text(myArray[index])
+//            }
+//        }
+//    }
+// }
+
+// MARK: - Displaying Arrays of Structures in a List
+
+struct Animals: Identifiable {
+    let pet: String
+    let id = UUID()
+}
+
 struct ContentView: View {
-    var myArray = ["Cat", "Dog", "Turtle", "Ferret", "Parrot", "Goldfish", "Lizard", "Canary", "Tarantula", "Hamster"]
+    var animals = [
+        Animals(pet: "Cat"),
+        Animals(pet: "Dog"),
+        Animals(pet: "Turtle"),
+        Animals(pet: "Ferret"),
+        Animals(pet: "Parrot"),
+        Animals(pet: "Goldfish"),
+        Animals(pet: "Lizard"),
+        Animals(pet: "Canary"),
+        Animals(pet: "Tarantula"),
+        Animals(pet: "Hamster"),
+    ]
 
     var body: some View {
-        List {
-            ForEach(0 ... myArray.count - 1, id: \.self) { index in
-                Text(myArray[index])
-            }
+        List(animals) {
+            Text($0.pet)
         }
     }
 }
