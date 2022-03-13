@@ -52,36 +52,64 @@ import SwiftUI
 
  .cancel – Displays text in bold
  */
+// struct ContentView: View {
+//    @State var showAlert = false
+//    @State var showActionSheet = false
+//
+//    var body: some View {
+//        VStack(spacing: 64) {
+//            Button("Show Alert") {
+//                showAlert.toggle()
+//            }
+//            .alert(isPresented: $showAlert) {
+//                Alert(title: Text("Warning!"),
+//                      message: Text("Zombies on the loose"),
+//                      primaryButton: .default(Text("Default")),
+//                      secondaryButton: .cancel(Text("Cancel")))
+//            }
+//
+//            Button("Show Action Sheet") {
+//                showActionSheet.toggle()
+//            }
+//            .actionSheet(isPresented: $showActionSheet) {
+//                ActionSheet(title: Text("Warning!"),
+//                            message: Text("Zombies on the loose"),
+//                            buttons: [.default(Text("Default")),
+//                                      .cancel(Text("Cancel")),
+//                                      .destructive(Text("Destructive")),
+//                            ]
+//                )
+//            }
+//        }
+//        .padding()
+//    }
+// }
+
+// MARK: - Making Alert/ActionSheet Buttons Responsive
+
 struct ContentView: View {
     @State var showAlert = false
-    @State var showActionSheet = false
+    @State var message = ""
 
     var body: some View {
         VStack(spacing: 64) {
+            Text("Message: \(message)")
             Button("Show Alert") {
                 showAlert.toggle()
             }
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("Warning!"),
                       message: Text("Zombies on the loose"),
-                      primaryButton: .default(Text("Default")),
-                      secondaryButton: .cancel(Text("Cancel")))
-            }
-
-            Button("Show Action Sheet") {
-                showActionSheet.toggle()
-            }
-            .actionSheet(isPresented: $showActionSheet) {
-                ActionSheet(title: Text("Warning!"),
-                            message: Text("Zombies on the loose"),
-                            buttons: [.default(Text("Default")),
-                                      .cancel(Text("Cancel")),
-                                      .destructive(Text("Destructive")),
-                            ]
-                )
+                      primaryButton: .default(Text("Default"), action: {
+                          message = "Default chosen"
+                      }),
+                      secondaryButton: Alert.Button.cancel(Text("Cancel"), action: cancel))
             }
         }
-        .padding()
+    }
+
+    func cancel() {
+        message = "Cancel chosen"
     }
 }
 
