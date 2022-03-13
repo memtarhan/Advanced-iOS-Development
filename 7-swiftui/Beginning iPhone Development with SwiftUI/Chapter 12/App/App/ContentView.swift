@@ -87,29 +87,68 @@ import SwiftUI
 
 // MARK: - Making Alert/ActionSheet Buttons Responsive
 
+// struct ContentView: View {
+//    @State var showAlert = false
+//    @State var message = ""
+//
+//    var body: some View {
+//        VStack(spacing: 64) {
+//            Text("Message: \(message)")
+//            Button("Show Alert") {
+//                showAlert.toggle()
+//            }
+//            .alert(isPresented: $showAlert) {
+//                Alert(title: Text("Warning!"),
+//                      message: Text("Zombies on the loose"),
+//                      primaryButton: .default(Text("Default"), action: {
+//                          message = "Default chosen"
+//                      }),
+//                      secondaryButton: Alert.Button.cancel(Text("Cancel"), action: cancel))
+//            }
+//        }
+//    }
+//
+//    func cancel() {
+//        message = "Cancel chosen"
+//    }
+// }
+
+// MARK: - Using Contextual Menus
+
+/*
+ A Contextual Menu can hide multiple options from the user interface. Then it appears only after detecting a long press gesture on a view such as Text view. When the Contextual Menu lists options, the user can select one.
+ */
 struct ContentView: View {
-    @State var showAlert = false
-    @State var message = ""
+    @State var myColor = Color.gray
 
     var body: some View {
         VStack(spacing: 64) {
-            Text("Message: \(message)")
-            Button("Show Alert") {
-                showAlert.toggle()
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Warning!"),
-                      message: Text("Zombies on the loose"),
-                      primaryButton: .default(Text("Default"), action: {
-                          message = "Default chosen"
-                      }),
-                      secondaryButton: Alert.Button.cancel(Text("Cancel"), action: cancel))
-            }
+            Rectangle()
+                .foregroundColor(myColor)
+            Text("Pick a color")
+                .padding()
+                .contextMenu(menuItems: {
+                    Button("Red", action: {
+                        myColor = Color.red
+                    })
+                    Button("Purple", action: purple)
+                    Button("Green", action: green)
+                    Button("Orange", action: orange)
+                })
         }
+        .padding()
     }
 
-    func cancel() {
-        message = "Cancel chosen"
+    func purple() {
+        myColor = Color.purple
+    }
+
+    func green() {
+        myColor = Color.green
+    }
+
+    func orange() {
+        myColor = Color.orange
     }
 }
 
