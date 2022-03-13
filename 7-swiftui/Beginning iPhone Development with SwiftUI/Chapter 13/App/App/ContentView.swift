@@ -43,28 +43,75 @@ import SwiftUI
 
 // MARK: - Displaying Arrays of Structures in a List
 
-struct Animals: Identifiable {
+// struct Animals: Identifiable {
+//    let pet: String
+//    let id = UUID()
+// }
+//
+// struct ContentView: View {
+//    var animals = [
+//        Animals(pet: "Cat"),
+//        Animals(pet: "Dog"),
+//        Animals(pet: "Turtle"),
+//        Animals(pet: "Ferret"),
+//        Animals(pet: "Parrot"),
+//        Animals(pet: "Goldfish"),
+//        Animals(pet: "Lizard"),
+//        Animals(pet: "Canary"),
+//        Animals(pet: "Tarantula"),
+//        Animals(pet: "Hamster"),
+//    ]
+//
+//    var body: some View {
+//        List(animals) {
+//            Text($0.pet)
+//        }
+//    }
+// }
+
+// MARK: - Creating Groups in a List
+
+struct SectionHeading: Identifiable {
+    let name: String
+    let animalList: [Animals]
+    let id = UUID()
+}
+
+struct Animals: Hashable, Identifiable {
     let pet: String
     let id = UUID()
 }
 
 struct ContentView: View {
     var animals = [
-        Animals(pet: "Cat"),
-        Animals(pet: "Dog"),
-        Animals(pet: "Turtle"),
-        Animals(pet: "Ferret"),
-        Animals(pet: "Parrot"),
-        Animals(pet: "Goldfish"),
-        Animals(pet: "Lizard"),
-        Animals(pet: "Canary"),
-        Animals(pet: "Tarantula"),
-        Animals(pet: "Hamster"),
+        SectionHeading(name: "Mammals",
+                       animalList: [
+                           Animals(pet: "Cat"),
+                           Animals(pet: "Dog"),
+                           Animals(pet: "Ferret"),
+                           Animals(pet: "Hamster")]),
+        SectionHeading(name: "Reptiles",
+                       animalList: [
+                           Animals(pet: "Turtle"),
+                           Animals(pet: "Lizard")]),
+        SectionHeading(name: "Birds",
+                       animalList: [
+                           Animals(pet: "Parrot"),
+                           Animals(pet: "Canary")]),
+        SectionHeading(name: "Other",
+                       animalList: [
+                           Animals(pet: "Tarantula"),
+                           Animals(pet: "Goldfish")]),
     ]
-
     var body: some View {
-        List(animals) {
-            Text($0.pet)
+        List {
+            ForEach(animals) { heading in
+                Section(header: Text("\(heading.name) Section")) {
+                    ForEach(heading.animalList) { creature in
+                        Text(creature.pet)
+                    }
+                }
+            }
         }
     }
 }
