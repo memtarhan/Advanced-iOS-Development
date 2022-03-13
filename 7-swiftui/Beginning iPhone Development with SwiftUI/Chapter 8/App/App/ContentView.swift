@@ -41,17 +41,31 @@ import SwiftUI
 //    }
 // }
 
-// MARK: - Using a Color Picker
+//// MARK: - Using a Color Picker
+//
+// struct ContentView: View {
+//    @State var myColor = Color.gray
+//    var body: some View {
+//        VStack(spacing: 64) {
+//            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+//                .frame(width: 200, height: 100)
+//                .foregroundColor(myColor)
+//
+//            ColorPicker("Pick a color", selection: $myColor)
+//        }
+//        .padding()
+//    }
+// }
+
+// MARK: - Using a Date Picker
 
 struct ContentView: View {
-    @State var myColor = Color.gray
+    @State var myDate = Date()
+
     var body: some View {
         VStack(spacing: 64) {
-            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                .frame(width: 200, height: 100)
-                .foregroundColor(myColor)
-
-            ColorPicker("Pick a color", selection: $myColor)
+            DatePicker(selection: $myDate, label: { Text("Date") })
+                .datePickerStyle(.wheel)
         }
         .padding()
     }
