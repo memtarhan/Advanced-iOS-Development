@@ -110,6 +110,7 @@ struct ContentView: View {
                     ForEach(heading.animalList) { creature in
                         Text(creature.pet)
                     }
+                    .listRowSeparatorTint(.red)
                 }
             }
         }
