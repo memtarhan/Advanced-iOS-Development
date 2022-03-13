@@ -18,6 +18,40 @@ import SwiftUI
  One or more Buttons – A Button that can dismiss the Alert/Action Sheet
 
  */
+// struct ContentView: View {
+//    @State var showAlert = false
+//    @State var showActionSheet = false
+//
+//    var body: some View {
+//        VStack(spacing: 64) {
+//            Button("Show Alert") {
+//                showAlert.toggle()
+//            }
+//            .alert(isPresented: $showAlert) {
+//                Alert(title: Text("Warning!"), message: Text("Zombies on the loose"), dismissButton: .default(Text("OK")))
+//            }
+//
+//            Button("Show Action Sheet") {
+//                showActionSheet.toggle()
+//            }
+//            .actionSheet(isPresented: $showActionSheet) {
+//                ActionSheet(title: Text("Warning!"), message: Text("Zombies on the loose"), buttons: [.default(Text("OK")), .cancel(Text("Cancel"))])
+//            }
+//        }
+//        .padding()
+//    }
+// }
+
+// MARK: - Displaying and Responding to Multiple Buttons
+
+/*
+ An Alert can display up to two buttons called a primaryButton: and a secondaryButton:. An ActionSheet can display up to three buttons. For each button you want to display, you can choose one of three styles.
+ .default – Displays text in blue
+
+ .destructive – Displays text in red
+
+ .cancel – Displays text in bold
+ */
 struct ContentView: View {
     @State var showAlert = false
     @State var showActionSheet = false
@@ -28,14 +62,23 @@ struct ContentView: View {
                 showAlert.toggle()
             }
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Warning!"), message: Text("Zombies on the loose"), dismissButton: .default(Text("OK")))
+                Alert(title: Text("Warning!"),
+                      message: Text("Zombies on the loose"),
+                      primaryButton: .default(Text("Default")),
+                      secondaryButton: .cancel(Text("Cancel")))
             }
 
             Button("Show Action Sheet") {
                 showActionSheet.toggle()
             }
             .actionSheet(isPresented: $showActionSheet) {
-                ActionSheet(title: Text("Warning!"), message: Text("Zombies on the loose"), buttons: [.default(Text("OK")), .cancel(Text("Cancel"))])
+                ActionSheet(title: Text("Warning!"),
+                            message: Text("Zombies on the loose"),
+                            buttons: [.default(Text("Default")),
+                                      .cancel(Text("Cancel")),
+                                      .destructive(Text("Destructive")),
+                            ]
+                )
             }
         }
         .padding()
