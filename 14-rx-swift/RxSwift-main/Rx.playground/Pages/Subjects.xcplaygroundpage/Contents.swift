@@ -58,3 +58,28 @@ behaviorSubject.onNext("Value C")
  behaviorSubscription2 - Value C
 
  */
+
+// MARK: - ReplaySubject
+
+/*
+ Similar to BehaviorSubject but has a buffer size
+ */
+
+var replaySubject = ReplaySubject<Double>.create(bufferSize: 3)
+replaySubject.onNext(1.0)
+replaySubject.onNext(1.5)
+
+var replaySubscription = replaySubject.subscribe(onNext: {
+    print("replaySubscription - $\($0)")
+})
+
+replaySubject.onNext(2.0)
+replaySubject.onNext(2.5)
+replaySubject.onNext(3.0)
+replaySubject.onNext(3.5)
+replaySubject.onNext(4.0)
+
+// Will return last 3
+var lastThreeTransactions = replaySubject.subscribe(onNext: {
+    print("lastThreeTransactions - $\($0)")
+})
