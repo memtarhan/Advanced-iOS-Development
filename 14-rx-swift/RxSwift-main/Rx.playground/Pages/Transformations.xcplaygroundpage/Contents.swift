@@ -49,3 +49,15 @@ gameSubject
 
 gameSubject.onNext(overwatch)
 gameSubject.onNext(starwal)
+
+// MARK: - Transformations: .filter
+
+Observable.of("Elon", "Steve", "Jeff", "Mark", "Jack")
+    .filter {
+//        $0.starts(with: "J")
+        $0.contains("a")
+    }
+    .subscribe(onNext: {
+        print($0)
+    })
+    .disposed(by: disposeBag)
