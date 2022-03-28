@@ -61,3 +61,17 @@ Observable.of("Elon", "Steve", "Jeff", "Mark", "Jack")
         print($0)
     })
     .disposed(by: disposeBag)
+
+// MARK: - Transformations: .zip
+
+let carMakes = Observable.of("BMW", "Mercedes", "Audi", "Honda")
+let carModels = Observable.of("m3", "AMG Classe A", "R8")
+
+Observable
+    .zip(carMakes, carModels) {
+        $0 + " - " + $1
+    }
+    .subscribe(onNext: {
+        print($0)
+    })
+    .disposed(by: disposeBag)
