@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
+    private var names: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,10 +26,11 @@ class ViewController: UIViewController {
     }
 
     private func setupRx() {
-        bind()
+        bindTextFields()
+        bindButtons()
     }
 
-    private func bind() {
+    private func bindTextFields() {
         let debounceDueTime: RxTimeInterval = RxTimeInterval.milliseconds(5)
 
         nameTextField.rx.text
@@ -37,6 +40,19 @@ class ViewController: UIViewController {
                 return isValid ? "Hello, \($0!)." : "Type your name"
             }
             .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindButtons() {
+        submitButton.rx.tap
+            .subscribe(onNext: {
+                if self.nameTextField.text != nil {
+                    self.names.accept(self.names.value + [self.nameTextField.text!])
+                    self.namesLabel.rx.text.onNext(self.names.value.joined(separator: "\n"))
+                    self.nameTextField.rx.text.onNext("")
+                    self.titleLabel.rx.text.onNext("Type your name")
+                }
+            })
             .disposed(by: disposeBag)
     }
 }
