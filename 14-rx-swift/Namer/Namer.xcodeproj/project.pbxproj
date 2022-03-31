@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4341F84627F6328A002E0804 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341F84527F6328A002E0804 /* SecondViewController.swift */; };
 		4355A64727F1FD1C00CB9426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4355A64627F1FD1C00CB9426 /* AppDelegate.swift */; };
 		4355A64927F1FD1C00CB9426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4355A64827F1FD1C00CB9426 /* SceneDelegate.swift */; };
 		4355A64B27F1FD1C00CB9426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4355A64A27F1FD1C00CB9426 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		13F1D1DA3758D3AF9CF2AEE1 /* Pods-NamerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamerTests.release.xcconfig"; path = "Target Support Files/Pods-NamerTests/Pods-NamerTests.release.xcconfig"; sourceTree = "<group>"; };
+		4341F84527F6328A002E0804 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4355A64327F1FD1C00CB9426 /* Namer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Namer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4355A64627F1FD1C00CB9426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4355A64827F1FD1C00CB9426 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				4355A64F27F1FD1E00CB9426 /* Assets.xcassets */,
 				4355A65127F1FD1E00CB9426 /* LaunchScreen.storyboard */,
 				4355A65427F1FD1E00CB9426 /* Info.plist */,
+				4341F84527F6328A002E0804 /* SecondViewController.swift */,
 			);
 			path = Namer;
 			sourceTree = "<group>";
@@ -164,7 +167,6 @@
 				FA600BF97669CD5170FA72FF /* Pods-NamerTests.debug.xcconfig */,
 				13F1D1DA3758D3AF9CF2AEE1 /* Pods-NamerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -407,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4341F84627F6328A002E0804 /* SecondViewController.swift in Sources */,
 				4355A64B27F1FD1C00CB9426 /* ViewController.swift in Sources */,
 				4355A64727F1FD1C00CB9426 /* AppDelegate.swift in Sources */,
 				4355A64927F1FD1C00CB9426 /* SceneDelegate.swift in Sources */,
