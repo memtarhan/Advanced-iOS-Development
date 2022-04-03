@@ -8,40 +8,35 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var city: String = "Aveiro"
-    @State private var temperature: String = "15°"
-    @State private var condition: String = "Partly Cloudy"
-    @State private var highTemperature: String = "H:17°"
-    @State private var lowTemperature: String = "L:7°"
+    @ObservedObject private var viewModel = HomeViewModel()
 
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 20) {
-                Spacer()
 
                 VStack(alignment: .center, spacing: 4) {
-                    Text(city)
+                    Text(viewModel.city)
                         .font(.largeTitle)
                         .fontWeight(.medium)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
-                    Text(temperature)
-                        .font(.system(size: 64, weight: .light, design: .rounded))
+                    Text(viewModel.temperature)
+                        .font(.system(size: 64, weight: .light, design: .default))
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
-                    Text(condition)
+                    Text(viewModel.condition)
                         .font(.title3)
                         .fontWeight(.medium)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                     HStack(alignment: .center, spacing: 4) {
-                        Text(highTemperature)
+                        Text(viewModel.highTemperature)
                             .font(.title3)
                             .fontWeight(.medium)
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
-                        Text(lowTemperature)
+                        Text(viewModel.lowTemperature)
                             .font(.title3)
                             .fontWeight(.medium)
                             .foregroundColor(Color.white)
@@ -51,11 +46,14 @@ struct HomeView: View {
 
                 Spacer()
 
-            }.padding()
+            }.padding(EdgeInsets(top: 64, leading: 32, bottom: 20, trailing: 32))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Image("BackgroundImage").resizable().aspectRatio(contentMode: .fill))
         .ignoresSafeArea()
+        .onAppear {
+            self.viewModel.fetch()
+        }
     }
 }
 
