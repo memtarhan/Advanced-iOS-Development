@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HomeView: View {
     @ObservedObject private var viewModel = HomeViewModel()
+    @ObservedObject private var locationViewModel = LocationViewModel()
+
+    let locationManager = CLLocationManager()
 
     var body: some View {
         ZStack(alignment: .center) {
             ScrollView {
                 VStack(alignment: .center, spacing: 20) {
                     VStack(alignment: .center, spacing: 4) {
-                        Text(viewModel.city)
+                        Text(locationViewModel.location?.description ?? "CLLocation")
                             .font(.largeTitle)
                             .fontWeight(.medium)
                             .foregroundColor(Color.white)
@@ -51,11 +55,6 @@ struct HomeView: View {
                             InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
                             InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
                         }
-                        
-                        HStack(alignment: .center, spacing: 20) {
-                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
-                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
-                        }
 
                         HStack(alignment: .center, spacing: 20) {
                             InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
@@ -77,6 +76,10 @@ struct HomeView: View {
                             InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
                         }
 
+                        HStack(alignment: .center, spacing: 20) {
+                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
+                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
+                        }
 
                     }.padding()
 
@@ -88,6 +91,8 @@ struct HomeView: View {
         .ignoresSafeArea()
         .onAppear {
             self.viewModel.fetch()
+
+            self.locationViewModel.trigger()
         }
     }
 }

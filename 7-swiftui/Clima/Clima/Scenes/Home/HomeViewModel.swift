@@ -5,6 +5,7 @@
 //  Created by Mehmet Tarhan on 03/04/2022.
 //
 
+import CoreLocation
 import Foundation
 
 class HomeViewModel: ObservableObject {
@@ -41,6 +42,31 @@ class HomeViewModel: ObservableObject {
             case let .failure(error):
                 print(error)
             }
+        }
+    }
+}
+
+class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @Published var authorizationStatus: CLAuthorizationStatus?
+    @Published var location: CLLocation?
+
+    private let locationManager: CLLocationManager
+
+    override init() {
+        locationManager = CLLocationManager()
+        super.init()
+    }
+
+    func trigger() {
+        authorizationStatus = locationManager.authorizationStatus
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        DispatchQueue.main.async {
+            self.location = locations.last
         }
     }
 }
