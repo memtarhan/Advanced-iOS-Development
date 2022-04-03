@@ -15,6 +15,7 @@
 		43BB0EFE27F9FEB100B96BBB /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB0EFD27F9FEB100B96BBB /* HomeModel.swift */; };
 		43BB0F0127FA3FB300B96BBB /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB0F0027FA3FB300B96BBB /* WeatherService.swift */; };
 		43BB0F0427FA425F00B96BBB /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB0F0327FA425F00B96BBB /* WeatherResponse.swift */; };
+		43BB0F0727FA467000B96BBB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB0F0627FA467000B96BBB /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		43BB0EFD27F9FEB100B96BBB /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		43BB0F0027FA3FB300B96BBB /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		43BB0F0327FA425F00B96BBB /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		43BB0F0627FA467000B96BBB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		43BB0EE827F9FE1B00B96BBB /* Clima */ = {
 			isa = PBXGroup;
 			children = (
+				43BB0F0527FA466400B96BBB /* Designed */,
 				43BB0F0227FA425300B96BBB /* Models */,
 				43BB0EFF27FA3FA500B96BBB /* Services */,
 				43BB0EF727F9FE5B00B96BBB /* Scenes */,
@@ -109,6 +112,14 @@
 				43BB0F0327FA425F00B96BBB /* WeatherResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		43BB0F0527FA466400B96BBB /* Designed */ = {
+			isa = PBXGroup;
+			children = (
+				43BB0F0627FA467000B96BBB /* CardView.swift */,
+			);
+			path = Designed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BB0F0727FA467000B96BBB /* CardView.swift in Sources */,
 				43BB0F0127FA3FB300B96BBB /* WeatherService.swift in Sources */,
 				43BB0F0427FA425F00B96BBB /* WeatherResponse.swift in Sources */,
 				43BB0EFE27F9FEB100B96BBB /* HomeModel.swift in Sources */,
