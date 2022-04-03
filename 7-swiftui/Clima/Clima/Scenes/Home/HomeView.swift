@@ -5,21 +5,18 @@
 //  Created by Mehmet Tarhan on 03/04/2022.
 //
 
-import SwiftUI
 import CoreLocation
+import SwiftUI
 
 struct HomeView: View {
     @ObservedObject private var viewModel = HomeViewModel()
-    @ObservedObject private var locationViewModel = LocationViewModel()
-
-    let locationManager = CLLocationManager()
 
     var body: some View {
         ZStack(alignment: .center) {
             ScrollView {
                 VStack(alignment: .center, spacing: 20) {
                     VStack(alignment: .center, spacing: 4) {
-                        Text(locationViewModel.location?.description ?? "CLLocation")
+                        Text(viewModel.city)
                             .font(.largeTitle)
                             .fontWeight(.medium)
                             .foregroundColor(Color.white)
@@ -90,9 +87,7 @@ struct HomeView: View {
         .background(Image("BackgroundImage").resizable().aspectRatio(contentMode: .fill))
         .ignoresSafeArea()
         .onAppear {
-            self.viewModel.fetch()
-
-            self.locationViewModel.trigger()
+            self.viewModel.trigger()
         }
     }
 }

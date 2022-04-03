@@ -8,7 +8,7 @@
 import CoreLocation
 import Foundation
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var city: String = ""
     @Published var temperature: String = ""
     @Published var feelsLike: String = ""
@@ -18,22 +18,43 @@ class HomeViewModel: ObservableObject {
     @Published var humidity: String = ""
 
     private let service: WeatherService
+    private let locationManager: CLLocationManager
 
-    init() {
+    private var location: CLLocation?
+
+    override init() {
         service = WeatherService()
+        locationManager = CLLocationManager()
+
+        super.init()
+
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+
+    func trigger() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+
+    // MARK: - CLLocationManagerDelegate
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations.last
+        locationManager.stopUpdatingLocation()
+        locationManager.delegate = nil
+        fetch()
     }
 
     func fetch() {
-        let city = "Patnos"
-        service.fetch(for: city) { result in
+        service.fetch(for: location!) { result in
             switch result {
             case let .success(weather):
-                let temperature = Int((weather.main?.temp!)!)
-                let feelsLike = Int((weather.main?.feelsLike!)!)
-                let condition = weather.weather?.first?.main ?? ""
-                let humidity: Int = weather.main!.humidity!
+                print(weather)
+                let temperature = Int((weather.current?.temp! ?? 0))
+                let feelsLike = Int((weather.current?.feelsLike!)!)
+                let condition = weather.current?.weather?.first?.main ?? ""
+                let humidity: Int = weather.current!.humidity!
                 DispatchQueue.main.async {
-                    self.city = weather.name!
                     self.temperature = "\(temperature)°"
                     self.feelsLike = "\(feelsLike)°"
                     self.condition = condition
@@ -46,27 +67,27 @@ class HomeViewModel: ObservableObject {
     }
 }
 
-class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var authorizationStatus: CLAuthorizationStatus?
-    @Published var location: CLLocation?
-
-    private let locationManager: CLLocationManager
-
-    override init() {
-        locationManager = CLLocationManager()
-        super.init()
-    }
-
-    func trigger() {
-        authorizationStatus = locationManager.authorizationStatus
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        DispatchQueue.main.async {
-            self.location = locations.last
-        }
-    }
-}
+// class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+//    @Published var authorizationStatus: CLAuthorizationStatus?
+//    @Published var location: CLLocation?
+//
+//    private let locationManager: CLLocationManager
+//
+//    override init() {
+//        locationManager = CLLocationManager()
+//        super.init()
+//    }
+//
+//    func trigger() {
+//        authorizationStatus = locationManager.authorizationStatus
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.startUpdatingLocation()
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        DispatchQueue.main.async {
+//            self.location = locations.last
+//        }
+//    }
+// }
