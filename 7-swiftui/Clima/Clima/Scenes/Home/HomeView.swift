@@ -11,7 +11,7 @@ struct HomeView: View {
     @ObservedObject private var viewModel = HomeViewModel()
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .center) {
             ScrollView {
                 VStack(alignment: .center, spacing: 20) {
                     VStack(alignment: .center, spacing: 4) {
@@ -47,15 +47,40 @@ struct HomeView: View {
                     Spacer()
 
                     VStack {
-                        HStack {
+                        HStack(alignment: .center, spacing: 20) {
                             InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
                             InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
-
                         }
+                        
+                        HStack(alignment: .center, spacing: 20) {
+                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
+                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
+                        }
+
+                        HStack(alignment: .center, spacing: 20) {
+                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
+                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
+                        }
+
+                        HStack(alignment: .center, spacing: 20) {
+                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
+                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
+                        }
+
+                        HStack(alignment: .center, spacing: 20) {
+                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
+                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
+                        }
+
+                        HStack(alignment: .center, spacing: 20) {
+                            InfoCardView(viewModel: viewModel, title: "Feels like", type: .feelsLike)
+                            InfoCardView(viewModel: viewModel, title: "Humidity", type: .humidity)
+                        }
+
 
                     }.padding()
 
-                }.padding(32)
+                }.padding()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -78,20 +103,29 @@ struct InfoCardView: View {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(.black.opacity(0.3))
                 .shadow(radius: 10)
+                .aspectRatio(contentMode: .fit)
 
             VStack {
                 Text(title)
                     .font(.title3)
                     .foregroundColor(.white)
 
-                Text(type == .feelsLike ? viewModel.feelsLike : viewModel.humidity)
-                    .font(.body)
-                    .foregroundColor(.white)
+                switch type {
+                case .feelsLike:
+                    Text(viewModel.feelsLike)
+                        .font(.body)
+                        .foregroundColor(.white)
+
+                case .humidity:
+                    Text(viewModel.humidity)
+                        .font(.body)
+                        .foregroundColor(.white)
+                }
             }
             .padding()
             .multilineTextAlignment(.center)
         }
-        .frame(width: 128, height: 128)
+//        .frame(width: 128, height: 128)
     }
 }
 
