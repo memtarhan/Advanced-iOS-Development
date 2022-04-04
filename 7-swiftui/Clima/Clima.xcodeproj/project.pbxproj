@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4307001B27FBACCF00862104 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4307001A27FBACCF00862104 /* AppView.swift */; };
 		43BB0EEA27F9FE1B00B96BBB /* ClimaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB0EE927F9FE1B00B96BBB /* ClimaApp.swift */; };
 		43BB0EEE27F9FE1E00B96BBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BB0EED27F9FE1E00B96BBB /* Assets.xcassets */; };
 		43BB0EF127F9FE1E00B96BBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BB0EF027F9FE1E00B96BBB /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4307001A27FBACCF00862104 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		43BB0EE627F9FE1B00B96BBB /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BB0EE927F9FE1B00B96BBB /* ClimaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaApp.swift; sourceTree = "<group>"; };
 		43BB0EED27F9FE1E00B96BBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				43BB0EF827F9FE6000B96BBB /* Home */,
+				4307001A27FBACCF00862104 /* AppView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				43BB0F0127FA3FB300B96BBB /* WeatherService.swift in Sources */,
 				43BB0F0427FA425F00B96BBB /* WeatherResponse.swift in Sources */,
 				43BB0EFE27F9FEB100B96BBB /* HomeModel.swift in Sources */,
+				4307001B27FBACCF00862104 /* AppView.swift in Sources */,
 				43BB0EFA27F9FE8300B96BBB /* HomeView.swift in Sources */,
 				43BB0EFC27F9FEAA00B96BBB /* HomeViewModel.swift in Sources */,
 				43BB0EEA27F9FE1B00B96BBB /* ClimaApp.swift in Sources */,

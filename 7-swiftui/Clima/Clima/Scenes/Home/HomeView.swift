@@ -13,7 +13,7 @@ struct HomeView: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .center, spacing: 20) {
                     VStack(alignment: .center, spacing: 4) {
                         Text(viewModel.city)
@@ -46,28 +46,27 @@ struct HomeView: View {
                     }
 
                     Spacer()
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(.black.opacity(0.3))
-                            .shadow(radius: 10)
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 128)
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(alignment: .center, spacing: 16) {
-                                ForEach(0 ..< viewModel.hourly.count, id: \.self) { index in
-                                    VStack {
-                                        Text("\(viewModel.hourly[index].time)")
-                                        AsyncImage(url: URL(string: "https://openweathermap.org/img/w/\(viewModel.hourly[index].icon).png"))
-                                            .frame(width: 24, height: 24)
-                                        Text("\(viewModel.hourly[index].temp)")
+
+                    if viewModel.shouldShowHourly {
+                        ZStack {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(alignment: .center, spacing: 8) {
+                                    ForEach(0 ..< viewModel.hourly.count, id: \.self) { index in
+                                        VStack {
+                                            Text("\(viewModel.hourly[index].time)")
+                                            AsyncImage(url: URL(string: "https://openweathermap.org/img/w/\(viewModel.hourly[index].icon).png"))
+                                            Text("\(viewModel.hourly[index].temp)")
+                                        }
                                     }
                                 }
                             }
                         }
+                        .frame(height: 128)
+                        .background(Color.black.opacity(0.3))
+                        .cornerRadius(25)
+                        .shadow(radius: 10)
+                        .aspectRatio(contentMode: .fit)
                     }
-                    .padding()
-                    .frame(height: 128)
 
                     Spacer()
 
@@ -149,7 +148,6 @@ struct InfoCardView: View {
             .padding()
             .multilineTextAlignment(.center)
         }
-//        .frame(width: 128, height: 128)
     }
 }
 
@@ -161,5 +159,6 @@ enum CardType {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .previewDevice("iPhone 13 Pro Max")
     }
 }

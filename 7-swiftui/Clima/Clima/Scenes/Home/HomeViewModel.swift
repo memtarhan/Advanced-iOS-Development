@@ -17,6 +17,7 @@ class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var lowTemperature: String = "L:7°"
     @Published var humidity: String = ""
 
+    @Published var shouldShowHourly: Bool = false
     @Published var hourly: [HomeModel.Hourly] = []
 
     private let service: WeatherService
@@ -67,6 +68,8 @@ class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                         let date = Date(timeIntervalSince1970: timeInterval)
                         return HomeModel.Hourly(time: date.asHourly, icon: icon, temp: "\(temp)°")
                     }) ?? []
+
+                    self.shouldShowHourly = true
                 }
             case let .failure(error):
                 print(error)
