@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct HomeModel {
+    struct Hourly {
+        let time: String
+        let icon: String
+        let temp: String
+    }
+}

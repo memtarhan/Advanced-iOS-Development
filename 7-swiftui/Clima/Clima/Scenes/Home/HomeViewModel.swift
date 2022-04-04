@@ -17,6 +17,8 @@ class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var lowTemperature: String = "L:7°"
     @Published var humidity: String = ""
 
+    @Published var hourly: [HomeModel.Hourly] = []
+
     private let service: WeatherService
     private let locationManager: CLLocationManager
 
@@ -49,8 +51,7 @@ class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         service.fetch(for: location!) { result in
             switch result {
             case let .success(weather):
-                print(weather)
-                let temperature = Int((weather.current?.temp! ?? 0))
+                let temperature = Int(weather.current?.temp! ?? 0)
                 let feelsLike = Int((weather.current?.feelsLike!)!)
                 let condition = weather.current?.weather?.first?.main ?? ""
                 let humidity: Int = weather.current!.humidity!
@@ -59,6 +60,13 @@ class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                     self.feelsLike = "\(feelsLike)°"
                     self.condition = condition
                     self.humidity = "\(humidity)"
+                    self.hourly = weather.hourly?.map({ hourly in
+                        let temp = Int(hourly.temp ?? 0)
+                        let icon = hourly.weather?.first?.icon ?? "01d"
+                        let timeInterval = TimeInterval(hourly.dt ?? 0)
+                        let date = Date(timeIntervalSince1970: timeInterval)
+                        return HomeModel.Hourly(time: date.asHourly, icon: icon, temp: "\(temp)°")
+                    }) ?? []
                 }
             case let .failure(error):
                 print(error)
@@ -91,3 +99,11 @@ class HomeViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 //        }
 //    }
 // }
+
+extension Date {
+    var asHourly: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        return dateFormatter.string(from: self)
+    }
+}

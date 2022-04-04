@@ -46,6 +46,30 @@ struct HomeView: View {
                     }
 
                     Spacer()
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            .fill(.black.opacity(0.3))
+                            .shadow(radius: 10)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 128)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(alignment: .center, spacing: 16) {
+                                ForEach(0 ..< viewModel.hourly.count, id: \.self) { index in
+                                    VStack {
+                                        Text("\(viewModel.hourly[index].time)")
+                                        AsyncImage(url: URL(string: "https://openweathermap.org/img/w/\(viewModel.hourly[index].icon).png"))
+                                            .frame(width: 24, height: 24)
+                                        Text("\(viewModel.hourly[index].temp)")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding()
+                    .frame(height: 128)
+
+                    Spacer()
 
                     VStack {
                         HStack(alignment: .center, spacing: 20) {

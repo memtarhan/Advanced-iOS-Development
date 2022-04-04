@@ -14,6 +14,7 @@ private enum API {
 //    static let baseURL = "https://api.openweathermap.org/data/2.5/weather?"
 
     // https://api.openweathermap.org/data/2.5/onecall?lat=40.64&lon=-8.65&exclude=minutely&appid=507cf4e20f94c76ef6efffc0851f7946
+    // http://openweathermap.org/img/w/01d.png
 }
 
 class WeatherService {
