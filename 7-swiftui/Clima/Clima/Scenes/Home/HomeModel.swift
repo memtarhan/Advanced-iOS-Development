@@ -8,6 +8,11 @@
 import Foundation
 
 struct HomeModel {
+    struct SunriseSet {
+        let sunrise: String
+        let sunset: String
+    }
+
     struct Hourly {
         let time: String
         let icon: String
