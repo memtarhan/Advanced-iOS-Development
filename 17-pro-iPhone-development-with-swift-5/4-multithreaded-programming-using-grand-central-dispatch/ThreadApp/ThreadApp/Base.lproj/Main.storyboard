@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vw0-xF-8Nq">
-                                <rect key="frame" x="64" y="333.5" width="286" height="229"/>
+                                <rect key="frame" x="64" y="313.5" width="286" height="269"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPL-wq-46u">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="31"/>
@@ -41,6 +41,9 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-yu-ApU">
                                         <rect key="frame" x="-2" y="199" width="290" height="31"/>
                                     </slider>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-KJ-kRL">
+                                        <rect key="frame" x="0.0" y="249" width="286" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -54,6 +57,7 @@
                     </view>
                     <connections>
                         <outlet property="resultsTextView" destination="hJ4-np-iKS" id="VeJ-QL-c2u"/>
+                        <outlet property="spinnerView" destination="cZi-KJ-kRL" id="3f0-hb-CR5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
