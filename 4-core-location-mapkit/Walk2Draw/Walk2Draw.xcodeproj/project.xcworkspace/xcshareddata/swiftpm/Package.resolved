@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "logstore2",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dasdom/LogStore2.git",
+      "state" : {
+        "revision" : "250b2b62d1401040f05ac8c4997e94d74d7d541c",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

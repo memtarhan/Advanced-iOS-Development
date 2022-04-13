@@ -16,6 +16,7 @@
 		4365C2A028078EAF00748182 /* Walk2DrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365C29F28078EAF00748182 /* Walk2DrawTests.swift */; };
 		4365C2AA28078EAF00748182 /* Walk2DrawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365C2A928078EAF00748182 /* Walk2DrawUITests.swift */; };
 		4365C2AC28078EAF00748182 /* Walk2DrawUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365C2AB28078EAF00748182 /* Walk2DrawUITestsLaunchTests.swift */; };
+		4365C2BA28078F9700748182 /* LogStore in Frameworks */ = {isa = PBXBuildFile; productRef = 4365C2B928078F9700748182 /* LogStore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4365C2BA28078F9700748182 /* LogStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = Walk2Draw;
+			packageProductDependencies = (
+				4365C2B928078F9700748182 /* LogStore */,
+			);
 			productName = Walk2Draw;
 			productReference = 4365C28528078EAC00748182 /* Walk2Draw.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 4365C27C28078EAC00748182;
+			packageReferences = (
+				4365C2B828078F9700748182 /* XCRemoteSwiftPackageReference "LogStore2" */,
+			);
 			productRefGroup = 4365C28628078EAC00748182 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -602,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4365C2B828078F9700748182 /* XCRemoteSwiftPackageReference "LogStore2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dasdom/LogStore2.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4365C2B928078F9700748182 /* LogStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4365C2B828078F9700748182 /* XCRemoteSwiftPackageReference "LogStore2" */;
+			productName = LogStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4365C27D28078EAC00748182 /* Project object */;
 }
