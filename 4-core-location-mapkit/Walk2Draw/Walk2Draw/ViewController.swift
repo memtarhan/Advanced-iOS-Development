@@ -8,9 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var locationProvider: LocationProvider?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemGreen
+
+        locationProvider = LocationProvider()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        locationProvider?.start()
     }
 }
