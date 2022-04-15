@@ -1,57 +1,40 @@
 import Combine
 import Foundation
+import XCTest
 
-struct Post: Codable, CustomStringConvertible {
-    let userId: Int
-    let id: Int
-    let title: String
-    let body: String
+class MyTests: XCTestCase {
+    var subscriptions = Set<AnyCancellable>()
+    let expectedTitle = "Expected title"
+    let expectedId = 1
 
-    var description: String {
-        "\(id) by \(userId)"
+    func testPublishers() {
+        APIService.getPosts()
+            .sink(receiveCompletion: { error in
+                print("Completed subscription \(String(describing: error))")
+            }) { results in
+                print("Fetched \(results.count) posts")
+                XCTAssert(results.count > 0)
+                XCTAssert(results.count == 100, "We got \(results.count) instead of 100 posts back")
+                XCTAssert(results[0].title == self.expectedTitle, "We got a wrong title")
+            }
+            .store(in: &subscriptions)
     }
 }
 
-enum APIError: Error {
-    case networkError(error: String)
-    case responseError(error: String)
-    case unknownError
-}
-
-let samplePost = Post(userId: 1,
-                      id: 1,
-                      title: "This is just a sample post.",
-                      body: "This is supposed to body of the post.")
-
-// (1) Create a 'dataTaskPublisher'
-let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-let publisher = URLSession.shared.dataTaskPublisher(for: url)
-    .map { $0.data }
-    .decode(type: [Post].self, decoder: JSONDecoder())
-
-// (2) Subscribe to the publisher
-let cancellableSink = publisher
-    .retry(2)
-    .mapError { error -> Error in
-        switch error {
-        case URLError.cannotFindHost:
-            return APIError.networkError(error: error.localizedDescription)
-        default:
-            return APIError.responseError(error: error.localizedDescription)
+//Courtesy of [NSScreenCast](https://github.com/nsscreencast/330-using-xctest-in-playgrounds)
+class TestObserver : NSObject, XCTestObservation {
+    func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
+        print("🚫 \(description) line:\(lineNumber)")
+    }
+    
+    func testCaseDidFinish(_ testCase: XCTestCase) {
+        if testCase.testRun?.hasSucceeded == true {
+            print("✅ \(testCase)")
         }
     }
-    .sink(receiveCompletion: { completion in
-        print(String(describing: completion))
-    }) { posts in
-        print("Posts: \(posts)")
-    }
+}
 
-// (3) A simple Publisher example with '.tryMap' and 'catch'
-Just(7)
-    .tryMap { _ in
-        throw APIError.unknownError
-    }
-    .catch { _ in
-        Just(2)
-    }
-    .sink { print($0) }
+let observer = TestObserver()
+XCTestObservationCenter.shared.addTestObserver(observer)
+
+MyTests.defaultTestSuite.run()
