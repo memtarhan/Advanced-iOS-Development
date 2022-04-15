@@ -12,6 +12,12 @@ struct Post: Codable, CustomStringConvertible {
     }
 }
 
+enum APIError: Error {
+    case networkError(error: String)
+    case responseError(error: String)
+    case unknownError
+}
+
 let samplePost = Post(userId: 1,
                       id: 1,
                       title: "This is just a sample post.",
@@ -24,8 +30,28 @@ let publisher = URLSession.shared.dataTaskPublisher(for: url)
     .decode(type: [Post].self, decoder: JSONDecoder())
 
 // (2) Subscribe to the publisher
-let cancellableSink = publisher.sink(receiveCompletion: { completion in
-    print(String(describing: completion))
-}) { posts in
-    print("Posts: \(posts)")
-}
+let cancellableSink = publisher
+    .retry(2)
+    .mapError { error -> Error in
+        switch error {
+        case URLError.cannotFindHost:
+            return APIError.networkError(error: error.localizedDescription)
+        default:
+            return APIError.responseError(error: error.localizedDescription)
+        }
+    }
+    .sink(receiveCompletion: { completion in
+        print(String(describing: completion))
+    }) { posts in
+        print("Posts: \(posts)")
+    }
+
+// (3) A simple Publisher example with '.tryMap' and 'catch'
+Just(7)
+    .tryMap { _ in
+        throw APIError.unknownError
+    }
+    .catch { _ in
+        Just(2)
+    }
+    .sink { print($0) }
