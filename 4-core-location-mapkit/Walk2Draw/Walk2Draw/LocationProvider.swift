@@ -32,11 +32,13 @@ class LocationProvider: NSObject {
     func start() {
         locationManager.startUpdatingLocation()
         updating = true
+        locationManager.allowsBackgroundLocationUpdates = true
     }
     
     func stop() {
         locationManager.stopUpdatingLocation()
         updating = false
+        locationManager.allowsBackgroundLocationUpdates = false 
     }
 }
 

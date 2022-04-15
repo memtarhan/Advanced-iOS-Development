@@ -70,8 +70,9 @@ class DrawView: UIView {
         mapView.addOverlay(overlay)
 
         guard let lastCoordinate = coordinates.last else { return }
-        let region = MKCoordinateRegion(center: lastCoordinate, latitudinalMeters: 300, longitudinalMeters: 300)
-        mapView.setRegion(region, animated: true)
+        guard let lastLocation = locations.last else { return }
+//        let region = MKCoordinateRegion(center: lastCoordinate, latitudinalMeters: 300, longitudinalMeters: 300)
+//        mapView.setRegion(region, animated: true)
 
         /*
          There’s a lot going on in this code, so let’s break it down. First we remove any overlay that might be on the map from the last call of this method. We need to do this because we can only draw the whole path at once. Next we map the locations array to an array of CLLocationCoordinate2Ds because this is what we need next. Then we create a polyline using these coordinates and add it as an overlay to the map.
@@ -80,6 +81,17 @@ class DrawView: UIView {
 
          Finally we set the region of the map such that users can see what they’re drawing.
          */
+
+        let maxDistance = locations.reduce(100) { result, next -> Double in
+            let distance = next.distance(from: lastLocation)
+            return max(result, distance)
+        }
+
+        let region = MKCoordinateRegion(center: lastLocation.coordinate,
+                                        latitudinalMeters: maxDistance,
+                                        longitudinalMeters: maxDistance)
+
+        mapView.setRegion(region, animated: true)
     }
 }
 
