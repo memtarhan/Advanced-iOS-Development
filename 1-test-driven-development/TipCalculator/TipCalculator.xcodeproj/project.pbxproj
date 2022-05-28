@@ -14,6 +14,9 @@
 		43340920284220A100A922DB /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334091F284220A100A922DB /* TipCalculatorTests.swift */; };
 		4334092A284220A100A922DB /* TipCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43340929284220A100A922DB /* TipCalculatorUITests.swift */; };
 		4334092C284220A100A922DB /* TipCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334092B284220A100A922DB /* TipCalculatorUITestsLaunchTests.swift */; };
+		433409392842234C00A922DB /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433409382842234C00A922DB /* Maths.swift */; };
+		439EA4AE28422533006E2AA6 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EA4AD28422533006E2AA6 /* Calculator.swift */; };
+		439EA4AF28422556006E2AA6 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EA4AD28422533006E2AA6 /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,8 @@
 		43340925284220A100A922DB /* TipCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43340929284220A100A922DB /* TipCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorUITests.swift; sourceTree = "<group>"; };
 		4334092B284220A100A922DB /* TipCalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		433409382842234C00A922DB /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
+		439EA4AD28422533006E2AA6 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +101,8 @@
 			children = (
 				4334090E2842209F00A922DB /* TipCalculatorApp.swift */,
 				433409102842209F00A922DB /* ContentView.swift */,
+				433409382842234C00A922DB /* Maths.swift */,
+				439EA4AD28422533006E2AA6 /* Calculator.swift */,
 				43340912284220A100A922DB /* Assets.xcassets */,
 				43340914284220A100A922DB /* Preview Content */,
 			);
@@ -258,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				433409112842209F00A922DB /* ContentView.swift in Sources */,
+				439EA4AE28422533006E2AA6 /* Calculator.swift in Sources */,
 				4334090F2842209F00A922DB /* TipCalculatorApp.swift in Sources */,
+				433409392842234C00A922DB /* Maths.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43340920284220A100A922DB /* TipCalculatorTests.swift in Sources */,
+				439EA4AF28422556006E2AA6 /* Calculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,32 +5,60 @@
 //  Created by Mehmet Tarhan on 28/05/2022.
 //
 
-import XCTest
 @testable import TipCalculator
+import XCTest
 
 class TipCalculatorTests: XCTestCase {
+    var calculator: Calculator!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        calculator = Calculator()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        calculator = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testCalculateTip() throws {
+        let total = 100.0
+        let tipPercentage = 50.0
+        let tip = try calculator.calculateTip(fromTotal: total, withPercentage: tipPercentage)
+
+        XCTAssertEqual(tip, 50)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testCalculateTipWithNegativeTotal() throws {
+        let total = -100.0
+        let tipPercentage = 50.0
+
+        XCTAssertThrowsError(try calculator.calculateTip(fromTotal: total, withPercentage: tipPercentage)) { error in
+            XCTAssertEqual(error as! CalculatorError, CalculatorError.negativeTotal)
         }
     }
 
+    func testCalculateTipWithNegativeTip() throws {
+        let total = 100.0
+        let tipPercentage = -50.0
+
+        XCTAssertThrowsError(try calculator.calculateTip(fromTotal: total, withPercentage: tipPercentage))
+    }
+
+    func testCalculateBill() throws {
+        let total = 100.0
+        let tipPercentage = 50.0
+        let tip = try calculator.calculateTip(fromTotal: total, withPercentage: tipPercentage)
+        let bill = try calculator.calculateBill(fromTotal: total, andTip: tip)
+
+        XCTAssertEqual(bill, 150.0)
+    }
+
+    func testSumOfTwoNumbers() {
+        let sum = Maths.add(x: 10, y: 5)
+        XCTAssertEqual(sum, 15)
+    }
+
+    func testDifferenceOfTwoNumbers() {
+        let dif = Maths.substract(x: 10, y: 5)
+        XCTAssertEqual(dif, 5)
+    }
 }
