@@ -63,18 +63,50 @@ func getToDo(id: Int) async throws -> ToDo {
     return todo
 }
 
-let ids = [0, 1, 2, 3, 4, 5]
+let ids = [1, 2, 3, 4, 5]
+
+// Task {
+//    for id in ids {
+//        print("will fetch \(id) at \(Date())")
+//        do {
+//            try Task.checkCancellation()
+//            let todo = try await getToDo(id: id)
+//            print("did fetch \(todo.id) at \(Date())")
+//
+//        } catch {
+//            print("did fail to fetch \(id) error: \(error)")
+//        }
+//    }
+// }
+
+func getToDos(ids: [Int]) async throws -> [ToDo] {
+    var todos = [ToDo]()
+
+    try await withThrowingTaskGroup(of: ToDo.self, body: { group in
+        for id in ids {
+            print("will fetch \(id) at \(Date())")
+            group.addTask {
+                let todo = try await getToDo(id: id)
+                print("did fetch \(todo.id) at \(Date())")
+                return todo
+            }
+        }
+
+        for try await (todo) in group {
+            print("processing \(todo.id)")
+            todos.append(todo)
+        }
+    })
+
+    return todos
+}
 
 Task {
-    for id in ids {
-        print("will fetch \(id) at \(Date())")
-        do {
-            try Task.checkCancellation()
-            let todo = try await getToDo(id: id)
-            print("will fetch \(todo.id) at \(Date())")
-       
-        } catch {
-            print("did fail to fetch \(id) error: \(error)")
-        }
+    do {
+        try Task.checkCancellation()
+        let todo = try await getToDos(ids: ids)
+
+    } catch {
+        print("did fail to fetch error: \(error)")
     }
 }
