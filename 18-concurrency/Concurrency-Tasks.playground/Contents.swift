@@ -37,8 +37,44 @@ func getToDos(id1: Int, id2: Int) async throws -> [ToDo] {
     return [todo1, todo2]
 }
 
+// Task {
+//    if let todos = try? await getToDos(id1: 1, id2: 2) {
+//        print("fetched ToDos \(todos)")
+//    }
+// }
+
+func getToDo(id: Int) async throws -> ToDo {
+    if id == 0 {
+        throw NetworkError.noData
+    }
+
+    guard let url = URL(string: "\(baseURL)/\(id)") else {
+        throw NetworkError.invalidURL
+    }
+
+    async let (data, _) = URLSession.shared.data(from: url)
+
+    let todo = try? JSONDecoder().decode(ToDo.self, from: try await data)
+
+    guard let todo else {
+        throw NetworkError.decodingError
+    }
+
+    return todo
+}
+
+let ids = [0, 1, 2, 3, 4, 5]
+
 Task {
-    if let todos = try? await getToDos(id1: 1, id2: 2) {
-        print("fetched ToDos \(todos)")
+    for id in ids {
+        print("will fetch \(id) at \(Date())")
+        do {
+            try Task.checkCancellation()
+            let todo = try await getToDo(id: id)
+            print("will fetch \(todo.id) at \(Date())")
+       
+        } catch {
+            print("did fail to fetch \(id) error: \(error)")
+        }
     }
 }
