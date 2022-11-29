@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='macos' display-mode='rendered' buildActiveScheme='true' last-migration='1020'>
+    <pages>
+        <page name='Observables'/>
+        <page name='Subjects'/>
+        <page name='Transformations'/>
+    </pages>
+</playground>
