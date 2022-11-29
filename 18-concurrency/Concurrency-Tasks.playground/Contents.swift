@@ -17,6 +17,8 @@ enum NetworkError: Error {
     case decodingError
 }
 
+// MARK: - Structured Tasks
+
 func getToDos(id1: Int, id2: Int) async throws -> [ToDo] {
     guard let url1 = URL(string: "\(baseURL)/\(id1)"),
           let url2 = URL(string: "\(baseURL)/\(id2)") else {
@@ -101,12 +103,23 @@ func getToDos(ids: [Int]) async throws -> [ToDo] {
     return todos
 }
 
-Task {
-    do {
-        try Task.checkCancellation()
-        let todo = try await getToDos(ids: ids)
+// Task {
+//    do {
+//        try Task.checkCancellation()
+//        let todo = try await getToDos(ids: ids)
+//
+//    } catch {
+//        print("did fail to fetch error: \(error)")
+//    }
+// }
 
-    } catch {
-        print("did fail to fetch error: \(error)")
+// MARK: - Unstructured Tasks
+
+func getDataAsync() async {
+}
+
+func getData() {
+    Task {
+        await getDataAsync()
     }
 }
