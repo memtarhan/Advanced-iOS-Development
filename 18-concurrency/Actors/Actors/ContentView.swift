@@ -7,32 +7,75 @@
 
 import SwiftUI
 
-actor Counter {
-    var value: Int = 0
+@MainActor
+class BankAccountViewModel: ObservableObject {
+    private var bankAccount: BankAccount
+    @Published var currentBalance: Double?
+    @Published var transactions: [String] = []
 
-    func increment() -> Int {
-        value += 1
-        return value
+    init(balance: Double) {
+        bankAccount = BankAccount(balance: balance)
+    }
+
+    func withdraw(_ amount: Double) async {
+        await bankAccount.withdraw(amount)
+
+        currentBalance = await bankAccount.getBalance()
+        transactions = await bankAccount.transactions
+    }
+}
+
+actor BankAccount {
+    private(set) var balance: Double
+    private(set) var transactions: [String] = []
+
+    init(balance: Double) {
+        self.balance = balance
+    }
+
+    func getBalance() -> Double {
+        return balance
+    }
+
+    func withdraw(_ amount: Double) {
+        if balance >= amount {
+            let processingTime = UInt32.random(in: 0 ... 3)
+            print("[Withdraw] Processing for \(amount) \(processingTime) seconds")
+            transactions.append("[Withdraw] Processing for \(amount) \(processingTime) seconds")
+            sleep(processingTime)
+            print("Withdrawing \(amount) from account")
+            transactions.append("Withdrawing \(amount) from account")
+
+            balance -= amount
+
+            print("Balance is \(balance)")
+            transactions.append("Balance is \(balance)")
+        }
     }
 }
 
 struct ContentView: View {
+    @StateObject private var viewModel = BankAccountViewModel(balance: 500)
+    let queue = DispatchQueue(label: "ConcurrentQueue", attributes: .concurrent)
+
     var body: some View {
         VStack {
-            Button {
-                let counter = Counter()
-
-                DispatchQueue.concurrentPerform(iterations: 100) { _ in
-                    Task {
-                        print(await counter.increment())
-                    }
+            Button("Withdraw") {
+                Task.detached {
+                    await viewModel.withdraw(200)
                 }
 
-            } label: {
-                Text("Increment")
+                Task.detached {
+                    await viewModel.withdraw(200)
+                }
+            }
+
+            Text("\(viewModel.currentBalance ?? 0.0)")
+
+            List(viewModel.transactions, id: \.self) { transaction in
+                Text(transaction)
             }
         }
-        .padding()
     }
 }
 
