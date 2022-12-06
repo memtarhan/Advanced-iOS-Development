@@ -169,48 +169,51 @@ func getToDo(withId id: Int) async throws -> ToDo {
 
 let ids = [-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 let queue = OperationQueue()
-//
-// for id in ids {
-//    queue.addOperation {
-//        Task {
-//            do {
-//                try Task.checkCancellation()
-//                try await getToDo(withId: id)
-//
-//            } catch {
-//                print("didFailFetching \(id) error: \(error)")
-//            }
-//        }
-//    }
-// }
 
-func getToDos(ids: [Int]) async throws -> [ToDo] {
-    var todos = [ToDo]()
-
-    try await withThrowingTaskGroup(of: ToDo.self, body: { group in
-        for id in ids {
-            group.addTask {
+ for id in ids {
+    queue.addOperation {
+        Task {
+            do {
                 try Task.checkCancellation()
-                let todo = try await getToDo(withId: id)
-                return todo
+                try await getToDo(withId: id)
+
+            } catch {
+                print("didFailFetching \(id) error: \(error)")
             }
         }
-
-        for try await (todo) in group {
-            print("processing \(todo.id)")
-            todos.append(todo)
-        }
-    })
-
-    return todos
-}
-
-Task {
-    do {
-        try Task.checkCancellation()
-        let todo = try await getToDos(ids: ids)
-
-    } catch {
-        print("did fail to fetch error: \(error)")
     }
-}
+ }
+
+queue.waitUntilAllOperationsAreFinished()
+queue.maxConcurrentOperationCount = 2
+
+//func getToDos(ids: [Int]) async throws -> [ToDo] {
+//    var todos = [ToDo]()
+//
+//    try await withThrowingTaskGroup(of: ToDo.self, body: { group in
+//        for id in ids {
+//            group.addTask {
+//                try Task.checkCancellation()
+//                let todo = try await getToDo(withId: id)
+//                return todo
+//            }
+//        }
+//
+//        for try await (todo) in group {
+//            print("processing \(todo.id)")
+//            todos.append(todo)
+//        }
+//    })
+//
+//    return todos
+//}
+//
+//Task {
+//    do {
+//        try Task.checkCancellation()
+//        let todo = try await getToDos(ids: ids)
+//
+//    } catch {
+//        print("did fail to fetch error: \(error)")
+//    }
+//}
