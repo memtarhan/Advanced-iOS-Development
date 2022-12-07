@@ -29,11 +29,18 @@ class ViewController: UIViewController {
         upperRightLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         upperRightLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
 
-        let lowerLeftLabel = createLabel(withText: "lowerLeft")
+        let lowerLeftLabel = createSecondaryLabel(withText: "lowerLeft")
         view.addSubview(lowerLeftLabel)
 
-        lowerLeftLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        lowerLeftLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         lowerLeftLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
+
+        let button = createButton(withTitle: "Play")
+        view.addSubview(button)
+
+        button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+        button.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
     }
 
     private func createLabel(withText text: String) -> UILabel {
@@ -41,8 +48,29 @@ class ViewController: UIViewController {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text
-        label.backgroundColor = .systemMint
 
         return label
+    }
+
+    private func createSecondaryLabel(withText text: String) -> UILabel {
+        let label = UILabel()
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 15)
+
+        return label
+    }
+
+    private func createButton(withTitle title: String) -> UIButton {
+        let button = UIButton()
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 12
+
+        return button
     }
 }
