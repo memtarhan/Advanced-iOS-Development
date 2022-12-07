@@ -40,7 +40,33 @@ class ViewController: UIViewController {
 
         button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
-        button.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+
+        let centerView = createView(withColor: .systemPurple)
+        view.addSubview(centerView)
+
+        // MARK: Option #1
+
+//        centerView.topAnchor.constraint(equalTo: upperRightLabel.bottomAnchor, constant: 32).isActive = true
+//        centerView.bottomAnchor.constraint(equalTo: lowerLeftLabel.topAnchor, constant: -32).isActive = true
+//        centerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+//        centerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+
+        // MARK: Option #2
+
+        centerView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        centerView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
+        centerView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5).isActive = true
+        centerView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8).isActive = true 
+    }
+
+    private func createView(withColor color: UIColor) -> UIView {
+        let view = UIView()
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = color
+        view.layer.cornerRadius = 12
+
+        return view
     }
 
     private func createLabel(withText text: String) -> UILabel {
