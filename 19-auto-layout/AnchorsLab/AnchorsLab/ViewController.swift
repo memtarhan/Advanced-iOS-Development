@@ -28,6 +28,12 @@ class ViewController: UIViewController {
 
         upperRightLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         upperRightLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+
+        let lowerLeftLabel = createLabel(withText: "lowerLeft")
+        view.addSubview(lowerLeftLabel)
+
+        lowerLeftLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        lowerLeftLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
     }
 
     private func createLabel(withText text: String) -> UILabel {
