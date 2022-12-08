@@ -62,6 +62,9 @@ class ScrollableViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
 
+    /**
+     Adds a subview to scrollable content
+     */
     func addSubview(_ view: UIView) {
         stackView.addArrangedSubview(view)
     }
