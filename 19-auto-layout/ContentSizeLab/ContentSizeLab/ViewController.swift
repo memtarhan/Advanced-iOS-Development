@@ -15,11 +15,21 @@ class ViewController: UIViewController {
     }
 
     private func setupViews() {
-        let label1 = createLabel(withText: "label1")
-        view.addSubview(label1)
+        let nameLabel = createLabel(withText: "Name")
+        view.addSubview(nameLabel)
 
-        label1.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        label1.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
+        let nameTextField = createTextField(withPlaceholder: "Your name")
+        view.addSubview(nameTextField)
+        
+        nameTextField.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 8).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+        nameTextField.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor).isActive = true
+        
+        
     }
 
     private func createLabel(withText text: String) -> UILabel {
@@ -27,9 +37,18 @@ class ViewController: UIViewController {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text
-        label.font = .boldSystemFont(ofSize: 32)
         label.backgroundColor = .systemMint
 
         return label
+    }
+
+    private func createTextField(withPlaceholder placeholder: String) -> UITextField {
+        let textField = UITextField()
+
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = placeholder
+        textField.backgroundColor = .systemGray4
+
+        return textField
     }
 }
