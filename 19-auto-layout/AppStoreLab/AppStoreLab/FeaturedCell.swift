@@ -35,6 +35,10 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
     }
 
     private func setupViews() {
+        let separator = UIView(frame: .zero)
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = .quaternaryLabel
+
         taglineLabel.font = UIFontMetrics.default.scaledFont(for: .systemFont(ofSize: 12, weight: .bold))
         taglineLabel.textColor = .systemBlue
 
@@ -48,13 +52,15 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
 
-        let stackView = UIStackView(arrangedSubviews: [taglineLabel, nameLabel, subtitleLabel, imageView])
+        let stackView = UIStackView(arrangedSubviews: [separator, taglineLabel, nameLabel, subtitleLabel, imageView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
 
         contentView.addSubview(stackView)
 
         NSLayoutConstraint.activate([
+            separator.heightAnchor.constraint(equalToConstant: 1),
+
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -62,6 +68,7 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
 
         ])
 
+        stackView.setCustomSpacing(10, after: separator)
         stackView.setCustomSpacing(10, after: subtitleLabel)
     }
 }

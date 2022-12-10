@@ -22,12 +22,14 @@ class AppsViewController: UIViewController {
 //        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 //        collectionView.backgroundColor = .systemBackground
 //        view.addSubview(collectionView)
-        
-        collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
 
+//        collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+//        collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+//        collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
+//        collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+
+        collectionView.collectionViewLayout = createComponsitionalLayout()
+        
         collectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.resuseIdentifier)
 
         createDataSource()
@@ -61,5 +63,35 @@ class AppsViewController: UIViewController {
         }
 
         dataSource?.apply(snapshot)
+    }
+
+    func createComponsitionalLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
+            let section = self.sections[sectionIndex]
+
+            switch section.type {
+            default:
+                return self.createFeaturedSection(using: section)
+            }
+        }
+
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+
+        return layout
+    }
+
+    func createFeaturedSection(using section: Section) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(350))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        return section
     }
 }
