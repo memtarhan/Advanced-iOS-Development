@@ -21,6 +21,8 @@
 		4324E6C229439CF4001096FE /* appstore.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324E6C129439CF4001096FE /* appstore.json */; };
 		4324E6C42944DA09001096FE /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C32944DA09001096FE /* SelfConfiguringCell.swift */; };
 		4324E6C62944DA70001096FE /* FeaturedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C52944DA70001096FE /* FeaturedCell.swift */; };
+		4324E6C829454CEB001096FE /* MediumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C729454CEB001096FE /* MediumCell.swift */; };
+		4324E6CA2945514A001096FE /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C92945514A001096FE /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		4324E6C129439CF4001096FE /* appstore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = appstore.json; sourceTree = "<group>"; };
 		4324E6C32944DA09001096FE /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
 		4324E6C52944DA70001096FE /* FeaturedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCell.swift; sourceTree = "<group>"; };
+		4324E6C729454CEB001096FE /* MediumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumCell.swift; sourceTree = "<group>"; };
+		4324E6C92945514A001096FE /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				4324E6BF29439C91001096FE /* Bundle+.swift */,
 				4324E6C32944DA09001096FE /* SelfConfiguringCell.swift */,
 				4324E6C52944DA70001096FE /* FeaturedCell.swift */,
+				4324E6C729454CEB001096FE /* MediumCell.swift */,
+				4324E6C92945514A001096FE /* SectionHeader.swift */,
 			);
 			path = AppStoreLab;
 			sourceTree = "<group>";
@@ -171,7 +177,9 @@
 				4324E6C029439C91001096FE /* Bundle+.swift in Sources */,
 				4324E6A42943991D001096FE /* SceneDelegate.swift in Sources */,
 				4324E6B629439A77001096FE /* AppsViewController.swift in Sources */,
+				4324E6CA2945514A001096FE /* SectionHeader.swift in Sources */,
 				4324E6C42944DA09001096FE /* SelfConfiguringCell.swift in Sources */,
+				4324E6C829454CEB001096FE /* MediumCell.swift in Sources */,
 				4324E6C62944DA70001096FE /* FeaturedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
