@@ -23,6 +23,7 @@
 		4324E6C62944DA70001096FE /* FeaturedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C52944DA70001096FE /* FeaturedCell.swift */; };
 		4324E6C829454CEB001096FE /* MediumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C729454CEB001096FE /* MediumCell.swift */; };
 		4324E6CA2945514A001096FE /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6C92945514A001096FE /* SectionHeader.swift */; };
+		4324E6CC29455441001096FE /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324E6CB29455441001096FE /* SmallCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4324E6C52944DA70001096FE /* FeaturedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCell.swift; sourceTree = "<group>"; };
 		4324E6C729454CEB001096FE /* MediumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumCell.swift; sourceTree = "<group>"; };
 		4324E6C92945514A001096FE /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		4324E6CB29455441001096FE /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				4324E6C52944DA70001096FE /* FeaturedCell.swift */,
 				4324E6C729454CEB001096FE /* MediumCell.swift */,
 				4324E6C92945514A001096FE /* SectionHeader.swift */,
+				4324E6CB29455441001096FE /* SmallCell.swift */,
 			);
 			path = AppStoreLab;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				4324E6A42943991D001096FE /* SceneDelegate.swift in Sources */,
 				4324E6B629439A77001096FE /* AppsViewController.swift in Sources */,
 				4324E6CA2945514A001096FE /* SectionHeader.swift in Sources */,
+				4324E6CC29455441001096FE /* SmallCell.swift in Sources */,
 				4324E6C42944DA09001096FE /* SelfConfiguringCell.swift in Sources */,
 				4324E6C829454CEB001096FE /* MediumCell.swift in Sources */,
 				4324E6C62944DA70001096FE /* FeaturedCell.swift in Sources */,
@@ -335,6 +339,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -363,6 +368,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

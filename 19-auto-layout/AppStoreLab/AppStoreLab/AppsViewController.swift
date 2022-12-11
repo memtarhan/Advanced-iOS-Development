@@ -17,21 +17,12 @@ class AppsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: UICollectionViewLayout())
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        collectionView.backgroundColor = .systemBackground
-//        view.addSubview(collectionView)
-
-//        collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
-//        collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
-//        collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-//        collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
-
         collectionView.collectionViewLayout = createComponsitionalLayout()
 
         collectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.resuseIdentifier)
         collectionView.register(MediumCell.self, forCellWithReuseIdentifier: MediumCell.resuseIdentifier)
+        collectionView.register(SmallCell.self, forCellWithReuseIdentifier: SmallCell.resuseIdentifier)
+
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
 
         createDataSource()
@@ -52,6 +43,8 @@ class AppsViewController: UIViewController {
             switch self.sections[indexPath.section].type {
             case "mediumTable":
                 return self.configure(MediumCell.self, withApp: app, forIndexPath: indexPath)
+            case "smallTable":
+                return self.configure(SmallCell.self, withApp: app, forIndexPath: indexPath)
             default:
                 return self.configure(FeaturedCell.self, withApp: app, forIndexPath: indexPath)
             }
@@ -92,6 +85,8 @@ class AppsViewController: UIViewController {
             switch section.type {
             case "mediumTable":
                 return self.createMediumSection(using: section)
+            case "smallTable":
+                return self.createSmallSection(using: section)
             default:
                 return self.createFeaturedSection(using: section)
             }
@@ -129,10 +124,31 @@ class AppsViewController: UIViewController {
         section.orthogonalScrollingBehavior = .groupPagingCentered
 
         /// - Header
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(80))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-        section.boundarySupplementaryItems = [header]
+        section.boundarySupplementaryItems = [createSectionHeader()]
 
         return section
+    }
+
+    func createSmallSection(using section: Section) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.2))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(200))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        /// - Header
+        section.boundarySupplementaryItems = [createSectionHeader()]
+
+        return section
+    }
+
+    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(80))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+
+        return header
     }
 }

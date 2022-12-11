@@ -34,10 +34,6 @@ class MediumCell: UICollectionViewCell, SelfConfiguringCell {
     }
 
     private func setupViews() {
-        let separator = UIView(frame: .zero)
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.backgroundColor = .quaternaryLabel
-
         nameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         nameLabel.textColor = .label
 
@@ -64,15 +60,10 @@ class MediumCell: UICollectionViewCell, SelfConfiguringCell {
         contentView.addSubview(outerStackView)
 
         NSLayoutConstraint.activate([
-//            separator.heightAnchor.constraint(equalToConstant: 1),
-
             outerStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             outerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             outerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
 
         ])
-
-//        outerStackView.setCustomSpacing(10, after: separator)
-//        outerStackView.setCustomSpacing(10, after: subtitleLabel)
     }
 }
