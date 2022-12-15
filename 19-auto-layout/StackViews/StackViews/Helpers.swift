@@ -22,8 +22,15 @@ func createLabel(withText text: String, size: CGFloat, color: UIColor) -> UILabe
 func createStackView(withOrientation orientation: NSLayoutConstraint.Axis) -> UIStackView {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = .vertical
+    stackView.axis = orientation
     stackView.spacing = 4
-    
+
     return stackView
+}
+
+func createScrollView() -> UIScrollView {
+    let scrollView = UIScrollView()
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+    return scrollView
 }

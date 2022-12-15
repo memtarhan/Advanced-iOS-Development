@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43473D2A294B806F00010407 /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473D29294B806F00010407 /* ScrollableViewController.swift */; };
+		43473D2C294B815A00010407 /* LabelWithSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473D2B294B815A00010407 /* LabelWithSwitch.swift */; };
 		4373A62C294A515400ADA2B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373A62B294A515400ADA2B7 /* AppDelegate.swift */; };
 		4373A62E294A515400ADA2B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373A62D294A515400ADA2B7 /* SceneDelegate.swift */; };
 		4373A630294A515400ADA2B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373A62F294A515400ADA2B7 /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43473D29294B806F00010407 /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
+		43473D2B294B815A00010407 /* LabelWithSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithSwitch.swift; sourceTree = "<group>"; };
 		4373A628294A515400ADA2B7 /* StackViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4373A62B294A515400ADA2B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4373A62D294A515400ADA2B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				4373A645294A7E0F00ADA2B7 /* EqualSpacingViewController.swift */,
 				4373A647294A7E3100ADA2B7 /* EqualCenteringViewController.swift */,
 				4373A649294A7ED100ADA2B7 /* CHCRFillViewController.swift */,
+				43473D29294B806F00010407 /* ScrollableViewController.swift */,
+				43473D2B294B815A00010407 /* LabelWithSwitch.swift */,
 			);
 			path = StackViews;
 			sourceTree = "<group>";
@@ -157,7 +163,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4373A630294A515400ADA2B7 /* ViewController.swift in Sources */,
+				43473D2A294B806F00010407 /* ScrollableViewController.swift in Sources */,
 				4373A644294A7D6E00ADA2B7 /* FillEquallyViewController.swift in Sources */,
+				43473D2C294B815A00010407 /* LabelWithSwitch.swift in Sources */,
 				4373A646294A7E0F00ADA2B7 /* EqualSpacingViewController.swift in Sources */,
 				4373A640294A53B400ADA2B7 /* FillViewController.swift in Sources */,
 				4373A62C294A515400ADA2B7 /* AppDelegate.swift in Sources */,

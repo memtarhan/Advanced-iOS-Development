@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let viewController = PreviewViewController()
+        let viewController = PlaybackViewController()
         rootViewController = UINavigationController(rootViewController: viewController)
     }
 

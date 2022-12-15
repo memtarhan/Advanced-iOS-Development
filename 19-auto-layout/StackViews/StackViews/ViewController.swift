@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         "Equal Spacing",
         "Equal Centering",
         "CHCR Fill",
+        "Scrollable",
     ]
 
     private lazy var tableView: UITableView = {
@@ -71,7 +72,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(EqualCenteringViewController(), animated: true)
         case "CHCR Fill":
             navigationController?.pushViewController(CHCRFillViewController(), animated: true)
-
+        case "Scrollable":
+            navigationController?.pushViewController(ScrollableViewController(), animated: true)
         default: break
         }
     }
